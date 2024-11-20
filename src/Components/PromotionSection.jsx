@@ -1,5 +1,5 @@
 import React from "react";
-import Sofa from "../assets/Image/Sofa.png"; 
+import Sofa from "../assets/Image/sofa.png"; 
 import LampImage from "../assets/Image/image32.png"; 
 const PromotionSection = () => {
   return (
