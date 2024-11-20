@@ -1,10 +1,10 @@
 import React from "react";
 
 
-import product1 from "../assets/image/image-1.png";
-import product2 from "../assets/image/image-2.png";
-import product3 from "../assets/image/image-3.png";
-import product4 from "../assets/image/image-4.png";
+import product1 from "../assets/Image/image-1.png";
+import product2 from "../assets/Image/image-2.png";
+import product3 from "../assets/Image/image-3.png";
+import product4 from "../assets/Image/image-4.png";
 
 
 import { FaCartPlus, FaHeart, FaSearchPlus } from "react-icons/fa";
