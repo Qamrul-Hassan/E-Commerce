@@ -2,7 +2,8 @@ import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } 
 import RouteLayout from './Pages/RouteLayout';
 import Home from './Pages/Home';
 import Shop from './Pages/Shop';
-
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 
 

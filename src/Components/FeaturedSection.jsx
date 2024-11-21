@@ -1,13 +1,38 @@
 import React from "react";
-
-
+import Slider from "react-slick";
 import product1 from "../assets/Image/image-1.png";
 import product2 from "../assets/Image/image-2.png";
 import product3 from "../assets/Image/image-3.png";
 import product4 from "../assets/Image/image-4.png";
-
-
 import { FaCartPlus, FaHeart, FaSearchPlus } from "react-icons/fa";
+import "./FeaturedSection.css";
+
+const sliderSettings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 4,
+  slidesToScroll: 1,
+  arrows: false,
+  centerMode: true,
+  centerPadding: "10px",
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 2,
+        centerPadding: "20px",
+      },
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 1,
+        centerPadding: "20px",
+      },
+    },
+  ],
+};
 
 const FeaturedSection = () => {
   const products = [
@@ -69,52 +94,67 @@ const FeaturedSection = () => {
           <p className="text-gray-600">Check out our top picks for you</p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <Slider {...sliderSettings}>
           {products.map((product) => (
             <div
               key={product.id}
-              className="bg-white shadow-lg rounded-lg overflow-hidden relative"
+              className="group bg-white shadow-lg rounded-lg overflow-hidden relative transition duration-700 hover:shadow-xl"
+              style={{ padding: "0 10px" }}
             >
-              <div className="bg-gray-100 h-60 flex items-center justify-center">
+              
+              <div className="bg-gray-100 h-60 flex items-center justify-center relative overflow-hidden">
                 <img
                   src={product.image}
                   alt={product.title}
                   className="h-48 object-contain"
                 />
+                <button
+                  className="absolute bottom-0 transform translate-y-full group-hover:translate-y-0 bg-[#08D15F] text-white text-sm px-4 py-2 rounded transition duration-700"
+                >
+                  View Details
+                </button>
               </div>
 
-              <div className="p-6">
-                <h3 className="text-lg font-bold text-pink-500">{product.title}</h3>
-                <p className="text-gray-500 text-sm mt-2 mb-3">{product.code}</p>
+             
+              <div className="p-6 transition duration-700 group-hover:bg-[#2F1AC4] group-hover:text-white">
+                <h3 className="text-lg font-bold text-gray-800 group-hover:text-white transition duration-700">
+                  {product.title}
+                </h3>
+                <p className="text-gray-500 text-sm mt-2 mb-1 group-hover:text-white transition duration-700">
+                  {product.code}
+                </p>
 
-                <div className="flex mt-2">
+                
+                <div className="flex mt-1 mb-3">
                   {product.colors.map((color, index) => (
                     <span
                       key={index}
-                      className="inline-block w-3 h-1 mr-1 mb-3"
+                      className="inline-block w-3 h-1 mr-1"
                       style={{ backgroundColor: color.code }}
                     ></span>
                   ))}
                 </div>
 
-                <p className="text-gray-800 font-semibold text-lg">{product.price}</p>
+                <p className="text-gray-800 font-semibold text-lg group-hover:text-white transition duration-700">
+                  {product.price}
+                </p>
 
                 
-                <div className="absolute top-4 right-4 flex gap-2">
-                  <div className="text-[#6fcfef] text-1xl hover:text-pink-400 cursor-pointer">
+                <div className="absolute top-4 left-4 flex gap-2 opacity-0 group-hover:opacity-100 transition duration-700">
+                  <div className="text-[#6fcfef] text-xl hover:text-[#2F1AC4] cursor-pointer">
                     <FaCartPlus />
                   </div>
-                  <div className="text-[pink] text-1xl hover:text-pink-400 cursor-pointer">
+                  <div className="text-pink-500 text-xl hover:text-[#2F1AC4] cursor-pointer">
                     <FaHeart />
                   </div>
-                  <div className="text-[#6fcfef] text-1xl hover:text-pink-400 cursor-pointer">
+                  <div className="text-[#6fcfef] text-xl hover:text-[#2F1AC4] cursor-pointer">
                     <FaSearchPlus />
                   </div>
                 </div>
               </div>
             </div>
           ))}
-        </div>
+        </Slider>
       </div>
     </section>
   );

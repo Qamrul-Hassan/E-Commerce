@@ -1,0 +1,19 @@
+
+.slick-dots {
+  @apply flex justify-center mt-2; 
+}
+
+.slick-dots li {
+  @apply mx-2; 
+}
+
+.slick-dots li button:before {
+  content: '';
+  @apply block w-[30px] h-2 mx-auto ; 
+  background-color: transparent;
+  border-top: 6px solid pink; 
+}
+
+.slick-dots li.slick-active button:before {
+  border-color: red; 
+}
