@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from 'prop-types';
 
-import Sale from "../assets/image/Sale.png"; 
+import Sale from "../assets/Image/Sale.png"; 
 
 const ProductCard = ({ product }) => (
   <div className="bg-white shadow-md w-[270px] mx-4 my-8 rounded-md relative p-4">
