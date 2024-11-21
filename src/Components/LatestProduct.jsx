@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from 'prop-types';
 
-import SaleImage from "../assets/image/Sale.png"; 
+import Sale from "../assets/image/Sale.png"; 
 
 const ProductCard = ({ product }) => (
   <div className="bg-white shadow-md w-[270px] mx-4 my-8 rounded-md relative p-4">
     <div className="absolute top-[20px] left-[20px] transform rotate-[-18deg]">
       <img
-        src={SaleImage}
+        src={Sale}
         alt="Sale Tag"
         className="w-[85px] h-[57px] object-contain"
       />
@@ -44,7 +44,7 @@ ProductCard.propTypes = {
   }).isRequired,
 };
 
-const LatestProducts = () => {
+const LatestProduct = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -97,4 +97,4 @@ const LatestProducts = () => {
   );
 };
 
-export default LatestProducts;
+export default LatestProduct;
