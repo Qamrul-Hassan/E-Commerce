@@ -100,7 +100,7 @@ const FeaturedSection = () => {
     <section className="py-12 bg-gray-100">
       <div className="container mx-auto px-4">
         <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold mb-2 leading-normal font-josefin text-3xl font-bold text-gray-800">Featured Products</h2> 
+          <h2 className=" mb-2 leading-normal font-josefin text-3xl font-bold text-gray-800">Featured Products</h2> 
           <p className="text-gray-600 leading-relaxed">Check out our top picks for you</p>
         </div>
 

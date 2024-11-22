@@ -4,7 +4,7 @@ import backgroundImage from '../assets/image/Rectangle.png';
 const NewsLetter = () => {
   return (
     <div
-      className="relative w-80% bg-cover bg-no-repeat h-[346px]"
+      className="relative w-full bg-cover bg-no-repeat h-[346px]"
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <div className="absolute left-[20.26%] right-[16.51%] top-[58.84%] bottom-[33.73%] flex flex-col items-center justify-center">
