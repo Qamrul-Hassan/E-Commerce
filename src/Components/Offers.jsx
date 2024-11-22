@@ -9,11 +9,11 @@ import ServiceImage from '../assets/image/24.png';
 const Offers = () => {
   return (
     <div className="relative w-full py-16 bg-white shadow-lg">
-      <h2 className="text-center text-3xl font-bold text-[#151875] mb-8 font-josefin text-3xl font-bold text-gray-800" >
+      <h2 className="text-center mb-8 font-josefin text-3xl font-bold text-gray-800" >
         What Shopex Offers
       </h2>
 
-      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4 gap-4 px-40">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 px-40">
         
         {/* Card 1 */}
         <div className="bg-white shadow-lg p-6 rounded-lg text-center">
