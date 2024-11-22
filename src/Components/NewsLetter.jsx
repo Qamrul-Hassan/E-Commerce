@@ -1,5 +1,5 @@
 import React from 'react';
-import backgroundImage from '../assets/image/Rectangle.png'; // Ensure the correct path to your background image
+import backgroundImage from '../assets/image/Rectangle.png'; 
 
 const NewsLetter = () => {
   return (
