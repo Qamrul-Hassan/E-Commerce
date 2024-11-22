@@ -21,7 +21,7 @@ const PromotionSection = () => {
         <h6 className="text-[#FB2E86] text-sm lg:text-sm font-bold">
           Best Furniture For Your Castle....
         </h6>
-        <h1 className="text-[#000000] text-[20px] lg:text-[30px] font-bold leading-snug lg:leading-[50px] mt-4">
+        <h1 className="text-[#000000] text-[20px] lg:text-[30px] font-bold leading-snug lg:leading-[50px] mt-4 font-josefin text-3xl font-bold text-gray-800">
           New Furniture Collection <br />
           Trends in 2020
         </h1>

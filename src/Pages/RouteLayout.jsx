@@ -4,6 +4,7 @@ import Navbar from '../Components/Navbar'
 import PromotionSection from '../Components/PromotionSection'
 import FeaturedSection from '../Components/FeaturedSection'
 import LatestProduct from '../Components/LatestProduct'
+import Offers from '../Components/Offers';
 
 
 const RouteLayout = () => {
@@ -14,7 +15,7 @@ const RouteLayout = () => {
     <PromotionSection/>
     <FeaturedSection/>
     <LatestProduct/>
-    
+    <Offers/>
     
     </>
   )

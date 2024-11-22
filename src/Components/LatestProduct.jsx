@@ -72,7 +72,7 @@ const LatestProduct = () => {
   return (
     <section className="py-12">
       <div className="text-center mb-8">
-        <h2 className="text-[#151875] font-bold text-2xl mb-4">
+        <h2 className="text-[#151875] font-bold text-2xl mb-4 font-josefin text-3xl font-bold text-gray-800">
           Latest Products
         </h2>
         <div className="flex justify-center gap-6 text-[#FB2448]">
