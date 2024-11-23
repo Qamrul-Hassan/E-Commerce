@@ -3,7 +3,7 @@ import Sofa from "../assets/Image/sofa.png";
 import LampImage from "../assets/Image/image32.png"; 
 const PromotionSection = () => {
   return (
-    <div className="relative bg-[#F2F0FF] w-full h-auto lg:h-[764px] flex flex-col lg:flex-row items-center">
+    <div className="relative bg-[#F2F0FF] w-full h-auto lg:h-[524px] flex flex-col lg:flex-row items-center">
       
       <div className="relative flex flex-col items-center lg:items-start lg:w-1/2 lg:ml-[70px] lg:mt-[122px]">
       

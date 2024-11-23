@@ -1,0 +1,13 @@
+.custom-slider .slick-track {
+    display: flex !important;
+    gap: 2px;
+  }
+  
+  .custom-slider .slick-slide {
+    padding: 0 10px;
+  }
+  
+  .custom-slider .slick-list {
+    overflow: visible
+  }
+  
