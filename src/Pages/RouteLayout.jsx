@@ -11,7 +11,6 @@ const RouteLayout = () => {
     <>
       <TopBar />
       <Navbar />
-      
       <Outlet /> 
       <Footer/>
     </>

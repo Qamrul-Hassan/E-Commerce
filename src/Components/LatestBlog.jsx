@@ -5,7 +5,7 @@ import Blog2Image from '../assets/Image/Frame2.png';
 import Blog3Image from '../assets/Image/Frame3.png';
 
 const LatestBlog = () => {
-  // Blog data
+ 
   const blogs = [
     {
       id: 1,

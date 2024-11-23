@@ -5,7 +5,6 @@ const Footer = () => {
     <footer className="bg-[#F1F0FF] text-gray-700 py-8">
       <div className="container mx-auto px-4 lg:px-20">
         <div className="flex flex-wrap justify-between">
-          
           <div className="w-full lg:w-1/4 mb-6 lg:mb-0">
             <h1 className="font-bold text-xl text-black">Hekto</h1>
             <div className="mt-4">

@@ -111,7 +111,7 @@ const FeaturedSection = () => {
               className="group bg-white shadow-lg rounded-lg overflow-hidden relative transition duration-700 hover:shadow-xl"
               style={{ padding: "0 10px" }}
             >
-              {/* Image Section */}
+              
               <div className="bg-gray-100 h-60 flex items-center justify-center relative overflow-hidden">
                 <img
                   src={product.image}
@@ -125,16 +125,16 @@ const FeaturedSection = () => {
                 </button>
               </div>
 
-              {/* Text Section */}
+              
               <div className="p-6 transition duration-700 group-hover:bg-[#2F1AC4] group-hover:text-white">
                 <h3 className="text-lg font-bold text-gray-800 group-hover:text-white transition duration-700 leading-normal">
-                  {product.title} {/* Adjusted line height */}
+                  {product.title} 
                 </h3>
                 <p className="text-gray-500 text-sm mt-2 mb-1 group-hover:text-white transition duration-700 leading-relaxed">
-                  {product.code} {/* Adjusted line height */}
+                  {product.code} 
                 </p>
 
-                {/* Color Dots */}
+               
                 <div className="flex mt-1 mb-3">
                   {product.colors.map((color, index) => (
                     <span
@@ -146,10 +146,10 @@ const FeaturedSection = () => {
                 </div>
 
                 <p className="text-gray-800 font-semibold text-lg group-hover:text-white transition duration-700 leading-normal">
-                  {product.price} {/* Adjusted line height */}
+                  {product.price} 
                 </p>
 
-                {/* Hover Icons */}
+              
                 <div className="absolute top-4 left-4 flex gap-2 opacity-0 group-hover:opacity-100 transition duration-700">
                   <div className="text-[#6fcfef] text-xl hover:text-[#2F1AC4] cursor-pointer">
                     <FaCartPlus />
@@ -166,7 +166,7 @@ const FeaturedSection = () => {
           ))}
         </Slider>
 
-        {/* Custom Navigation Buttons */}
+
         <div className="flex justify-center mt-4 space-x-4">
           <button onClick={handlePrev} className="w-8 h-1 border-t-4 border-pink-500 border-solid"></button>
           <button onClick={handleNext} className="w-8 h-1 border-t-4 border-pink-500 border-solid"></button>
