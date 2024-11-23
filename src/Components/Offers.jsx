@@ -1,6 +1,6 @@
 import React from 'react';
 
-// Importing images
+
 import DeliveryImage from '../assets/image/delivery.png';
 import CashbackImage from '../assets/image/cashback.png';
 import PremiumImage from '../assets/image/premium.png';
@@ -15,7 +15,7 @@ const Offers = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 px-40">
         
-        {/* Card 1 */}
+        
         <div className="bg-white shadow-lg p-6 rounded-lg text-center">
           <div className="mb-4">
             <img src={DeliveryImage} alt="Free Shipping" className="mx-auto w-12 h-16" />
@@ -28,7 +28,7 @@ const Offers = () => {
           </p>
         </div>
 
-        {/* Card 2 */}
+       
         <div className="bg-white shadow-lg p-6 rounded-lg text-center">
           <div className="mb-4">
             <img src={CashbackImage} alt="24/7 Support" className="mx-auto w-16 h-16" />
@@ -41,7 +41,7 @@ const Offers = () => {
           </p>
         </div>
 
-        {/* Card 3 */}
+        
         <div className="bg-white shadow-lg p-6 rounded-lg text-center">
           <div className="mb-4">
             <img src={PremiumImage} alt="Special Offers" className="mx-auto w-16 h-16" />
@@ -54,7 +54,7 @@ const Offers = () => {
           </p>
         </div>
 
-        {/* Card 4 */}
+  
         <div className="bg-white shadow-lg p-6 rounded-lg text-center">
           <div className="mb-4">
             <img src={ServiceImage} alt="High-Quality Products" className="mx-auto w-16 h-16" />
