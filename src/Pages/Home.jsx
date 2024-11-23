@@ -8,6 +8,7 @@ import TrendingSection from "../Components/TrendingSection";
 import DiscountItem from "../Components/DiscountItem";
 import TopCategories from "../Components/TopCategories";
 import NewsLetter from "../Components/NewsLetter";
+import LatestBlog from "../Components/LatestBlog";
 
 const Home = () => {
   return (
@@ -22,6 +23,7 @@ const Home = () => {
       <DiscountItem/>
       <TopCategories/>
       <NewsLetter/>
+      <LatestBlog/>
     </div>
   );
 };
