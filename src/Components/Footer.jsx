@@ -65,7 +65,7 @@ const Footer = () => {
 
         
         <div className="mt-8 flex justify-between items-center text-sm text-gray-500">
-          <p>©Webecy - All Rights Reserved</p>
+          <p>©Qamrul Hassan - All Rights Reserved</p>
           <div className="flex space-x-4">
             <a href="#" className="hover:text-pink-500">
               <i className="fab fa-facebook-f"></i>
