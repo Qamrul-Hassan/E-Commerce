@@ -1,5 +1,5 @@
 import React from 'react';
-import backgroundImage from '../assets/image/Rectangle.png'; 
+import backgroundImage from '../assets/Image/Rectangle.png'; 
 
 const NewsLetter = () => {
   return (
