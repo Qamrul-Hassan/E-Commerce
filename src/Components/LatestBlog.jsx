@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Blog1Image from '../assets/image/Frame1.png';
-import Blog2Image from '../assets/image/Frame2.png';
-import Blog3Image from '../assets/image/Frame3.png';
+import Blog1Image from '../assets/Image/Frame1.png';
+import Blog2Image from '../assets/Image/Frame2.png';
+import Blog3Image from '../assets/Image/Frame3.png';
 
 const LatestBlog = () => {
   // Blog data

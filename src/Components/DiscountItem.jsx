@@ -1,5 +1,5 @@
 import React from 'react';
-import discountItemImage from '../assets/image/DiscountItem.png'; // Ensure the path is correct
+import discountItemImage from '../assets/Image/DiscountItem.png'; // Ensure the path is correct
 
 const DiscountItem = () => {
   return (

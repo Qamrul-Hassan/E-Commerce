@@ -1,10 +1,10 @@
 import React from 'react';
 
 
-import DeliveryImage from '../assets/image/delivery.png';
-import CashbackImage from '../assets/image/cashback.png';
-import PremiumImage from '../assets/image/premium.png';
-import ServiceImage from '../assets/image/24.png';
+import DeliveryImage from '../assets/Image/delivery.png';
+import CashbackImage from '../assets/Image/cashback.png';
+import PremiumImage from '../assets/Image/premium.png';
+import ServiceImage from '../assets/Image/24.png';
 
 const Offers = () => {
   return (

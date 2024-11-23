@@ -5,7 +5,7 @@ const Footer = () => {
     <footer className="bg-[#F1F0FF] text-gray-700 py-8">
       <div className="container mx-auto px-4 lg:px-20">
         <div className="flex flex-wrap justify-between">
-          {/* Logo & Email Subscription */}
+          
           <div className="w-full lg:w-1/4 mb-6 lg:mb-0">
             <h1 className="font-bold text-xl text-black">Hekto</h1>
             <div className="mt-4">
@@ -26,7 +26,7 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Categories */}
+         
           <div className="w-full lg:w-1/4 mb-6 lg:mb-0">
             <h2 className="font-bold text-lg text-black mb-4">Categories</h2>
             <ul className="space-y-2">
@@ -38,7 +38,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Customer Care */}
+         
           <div className="w-full lg:w-1/4 mb-6 lg:mb-0">
             <h2 className="font-bold text-lg text-black mb-4">Customer Care</h2>
             <ul className="space-y-2">
@@ -50,7 +50,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Pages */}
+      
           <div className="w-full lg:w-1/4">
             <h2 className="font-bold text-lg text-black mb-4">Pages</h2>
             <ul className="space-y-2">
@@ -64,7 +64,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Footer Bottom */}
+        
         <div className="mt-8 flex justify-between items-center text-sm text-gray-500">
           <p>©Webecy - All Rights Reserved</p>
           <div className="flex space-x-4">
