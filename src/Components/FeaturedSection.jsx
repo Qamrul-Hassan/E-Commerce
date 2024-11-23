@@ -13,9 +13,10 @@ const sliderSettings = {
   speed: 500,
   slidesToShow: 4,
   slidesToScroll: 1,
-  arrows: false,
+  arrows: true, // Enable arrows for navigation
   centerMode: true,
   centerPadding: "10px",
+  focusOnSelect: true,  // Optional, allows selecting a slide
   responsive: [
     {
       breakpoint: 1024,
@@ -110,7 +111,7 @@ const FeaturedSection = () => {
           {products.map((product) => (
             <div
               key={product.id}
-              className="group bg-white shadow-lg rounded-lg overflow-hidden relative transition duration-700 hover:shadow-xl"
+              className="group bg-white shadow-lg rounded-lg overflow-hidden relative transition duration-700 hover:shadow-xl custom-card"
             >
               <div className="bg-gray-100 h-60 flex items-center justify-center relative overflow-hidden">
                 <img
@@ -162,6 +163,7 @@ const FeaturedSection = () => {
         </Slider>
 
         <div className="flex justify-center mt-4 space-x-4">
+         
           <button
             onClick={handlePrev}
             className="w-8 h-1 border-t-4 border-pink-500 border-solid"
