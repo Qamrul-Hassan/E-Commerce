@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-import Sale from "../assets/Image/Sale.png"; 
+import Sale from "../assets/Image/Sale.png";
 
 const ProductCard = ({ product }) => (
-  <div className="bg-white shadow-md w-[270px] mx-4 my-8 rounded-md relative p-4">
+  <div className="bg-white shadow-md rounded-md relative p-4">
     <div className="absolute top-[20px] left-[20px] transform rotate-[-18deg]">
       <img
         src={Sale}
@@ -21,13 +21,11 @@ const ProductCard = ({ product }) => (
 
     <div className="mt-4 flex flex-col items-center gap-2">
       <h3 className="text-lg font-medium text-[#151875]">{product.title}</h3>
-      <p className="text-sm text-gray-500">Comfort Handy Craft</p>
+      <p className="text-sm text-gray-500">Category: {product.category}</p>
     </div>
 
     <div className="mt-4 flex justify-between items-center">
-      <span className="text-lg font-bold text-[#151875]">
-        ${product.price}
-      </span>
+      <span className="text-lg font-bold text-[#151875]">${product.price}</span>
 
       <span className="text-sm text-[#FB2448] line-through">
         ${(product.price * 1.5).toFixed(2)}
@@ -41,6 +39,7 @@ ProductCard.propTypes = {
     image: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
+    category: PropTypes.string,
   }).isRequired,
 };
 
@@ -50,14 +49,16 @@ const LatestProduct = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch("https://dummyjson.com/products?limit=6");
+        
+        const response = await fetch("https://fakestoreapi.com/products?limit=8");
         const data = await response.json();
 
-        const transformedData = data.products.map((product) => ({
+        const transformedData = data.map((product) => ({
           id: product.id,
           title: product.title,
           price: product.price,
-          image: product.thumbnail,
+          image: product.image,
+          category: product.category,
         }));
 
         setProducts(transformedData);
@@ -72,7 +73,7 @@ const LatestProduct = () => {
   return (
     <section className="py-12">
       <div className="text-center mb-8">
-        <h2 className=" mb-4 font-josefin text-3xl font-bold text-gray-800">
+        <h2 className="mb-4 font-josefin text-3xl font-bold text-gray-800">
           Latest Products
         </h2>
         <div className="flex justify-center gap-6 text-[#FB2448]">
@@ -83,15 +84,16 @@ const LatestProduct = () => {
         </div>
       </div>
 
-      <div className="flex flex-wrap justify-center gap-8">
-        {products.map((product) => (
-          <div
-            key={product.id}
-            className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4"
-          >
-            <ProductCard product={product} />
-          </div>
-        ))}
+     
+      <div className="px-40">
+        
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-8">
+          {products.map((product) => (
+            <div key={product.id}>
+              <ProductCard product={product} />
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
