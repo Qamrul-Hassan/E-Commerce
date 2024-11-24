@@ -17,7 +17,7 @@ const TrendingSection = () => {
   }, []); 
 
   return (
-    <div className="relative w-full pt-16 pb-16 bg-gray-100 z-10"> {/* Added pb-16 for bottom padding */}
+    <div className="relative w-full pt-16 pb-16 bg-gray-100 z-10">
       <div className="text-center mb-8">
         <h2 className="text-4xl font-bold text-[#151875] font-josefin">
           Trending Posts
@@ -31,7 +31,7 @@ const TrendingSection = () => {
           {posts.map((post) => (
             <div
               key={post.id}
-              className="relative w-[270px] h-[420px] bg-white shadow-lg rounded-md overflow-hidden"
+              className="relative w-full sm:w-[270px] lg:w-[270px] h-[420px] bg-white shadow-lg rounded-md overflow-hidden"
               style={{
                 filter: "drop-shadow(0px 8px 40px rgba(49, 32, 138, 0.05))",
               }}
@@ -52,7 +52,7 @@ const TrendingSection = () => {
                 </div>
                 <div className="mt-4 flex justify-between items-center">
                   <span className="font-bold text-[#151875]">
-                    ${Math.floor(Math.random() * 100) + 10} {/* Random price for demo */}
+                    ${Math.floor(Math.random() * 100) + 10} 
                   </span>
                   <button className="text-white bg-pink-500 px-4 py-2 rounded-md hover:bg-pink-600">
                     Add to Cart

@@ -15,7 +15,7 @@ const Offers = () => {
 
       
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-        {/* Free Shipping */}
+        
         <div className="bg-white shadow-lg p-6 sm:p-8 rounded-lg text-center">
           <div className="mb-4">
             <img src={DeliveryImage} alt="Free Shipping" className="mx-auto w-10 h-14 sm:w-12 sm:h-16" />
