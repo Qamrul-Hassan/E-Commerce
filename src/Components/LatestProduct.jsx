@@ -49,7 +49,6 @@ const LatestProduct = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        
         const response = await fetch("https://fakestoreapi.com/products?limit=8");
         const data = await response.json();
 
@@ -71,12 +70,13 @@ const LatestProduct = () => {
   }, []);
 
   return (
-    <section className="py-12">
+    <section className="py-12 px-4 md:px-8 lg:px-16 xl:px-20">
+      {/* Heading Section */}
       <div className="text-center mb-8">
-        <h2 className="mb-4 font-josefin text-3xl font-bold text-gray-800">
+        <h2 className="mb-4 font-josefin text-2xl md:text-3xl font-bold text-gray-800">
           Latest Products
         </h2>
-        <div className="flex justify-center gap-6 text-[#FB2448]">
+        <div className="flex justify-center gap-4 text-[#FB2448] text-sm md:text-base">
           <span className="border-b-2 border-[#FB2448]">New Arrival</span>
           <span className="text-gray-500">Best Seller</span>
           <span className="text-gray-500">Featured</span>
@@ -84,10 +84,9 @@ const LatestProduct = () => {
         </div>
       </div>
 
-     
-      <div className="px-40">
-        
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-8">
+      {/* Product Grid */}
+      <div>
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {products.map((product) => (
             <div key={product.id}>
               <ProductCard product={product} />
