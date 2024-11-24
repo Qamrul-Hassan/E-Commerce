@@ -5,7 +5,7 @@ const DiscountItem = () => {
   return (
     <div className="relative w-full bg-[#F1F0FF] py-8 sm:py-12 lg:py-16 flex justify-center items-center">
       <div className="relative w-[90%] max-w-[1200px] bg-white border-[2px] border-[#E0E0E0] rounded-lg">
-        {/* Header Section */}
+      
         <div className="flex flex-col items-center py-6 px-4 text-center">
           <h2 className="font-josefin text-[24px] sm:text-[36px] lg:text-[42px] text-[#151875] mb-4">
             Discount Item
@@ -23,9 +23,9 @@ const DiscountItem = () => {
           </div>
         </div>
 
-        {/* Content Section */}
+      
         <div className="flex flex-wrap lg:flex-nowrap">
-          {/* Text Content */}
+          
           <div className="flex-1 p-4 sm:p-8">
             <h3 className="text-[#151875] text-[20px] sm:text-[24px] lg:text-[28px] font-bold mb-2">
               20% Discount Of All Products
