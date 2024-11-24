@@ -17,7 +17,7 @@ const TrendingSection = () => {
   }, []); 
 
   return (
-    <div className="relative w-full pt-16 pb-16 bg-gray-100 z-10">
+    <div className="relative w-full pt-16 pb-16 bg-gray-100 z-10"> {/* Added pb-16 for bottom padding */}
       <div className="text-center mb-8">
         <h2 className="text-4xl font-bold text-[#151875] font-josefin">
           Trending Posts
