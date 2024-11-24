@@ -7,7 +7,7 @@ const DiscountItem = () => {
       <div className="relative w-[90%] max-w-[1200px] bg-white border-[2px] border-[#E0E0E0] rounded-lg">
         {/* Header Section */}
         <div className="flex flex-col items-center py-6 px-4 text-center">
-          <h2 className="font-josefin text-[28px] sm:text-[36px] lg:text-[42px] text-[#151875] mb-4">
+          <h2 className="font-josefin text-[24px] sm:text-[36px] lg:text-[42px] text-[#151875] mb-4">
             Discount Item
           </h2>
           <div className="flex flex-wrap justify-center space-x-4">
@@ -52,7 +52,12 @@ const DiscountItem = () => {
 
           {/* Image Section */}
           <div className="flex-1 flex justify-center items-center relative p-4 sm:p-8">
-            <div className="w-[200px] sm:w-[300px] lg:w-[350px] h-[200px] sm:h-[300px] lg:h-[350px] bg-[#F1F0FF] rounded-full absolute -top-10 sm:-top-16 lg:-top-20 -right-6 lg:-right-10"></div>
+            <div
+              className="absolute rounded-full bg-[#F1F0FF] 
+                w-[150px] h-[150px] -top-8 -right-6
+                sm:w-[200px] sm:h-[200px] sm:-top-10 sm:-right-8
+                lg:w-[300px] lg:h-[300px] lg:-top-16 lg:-right-10"
+            ></div>
             <img
               src={discountItemImage}
               alt="Eams Sofa"
