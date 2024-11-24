@@ -13,10 +13,10 @@ const sliderSettings = {
   speed: 500,
   slidesToShow: 4,
   slidesToScroll: 1,
-  arrows: true, // Enable arrows for navigation
+  arrows: true, 
   centerMode: true,
   centerPadding: "10px",
-  focusOnSelect: true,  // Optional, allows selecting a slide
+  focusOnSelect: true,  
   responsive: [
     {
       breakpoint: 1024,
