@@ -1,107 +1,74 @@
-import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
+import React from "react";
 
-import Sale from "../assets/Image/Sale.png";
+import DeliveryImage from "../assets/Image/delivery.png";
+import CashbackImage from "../assets/Image/cashback.png";
+import PremiumImage from "../assets/Image/premium.png";
+import ServiceImage from "../assets/Image/24.png";
 
-const ProductCard = ({ product }) => (
-  <div className="bg-white shadow-md rounded-md relative p-4">
-    <div className="absolute top-[20px] left-[20px] transform rotate-[-18deg]">
-      <img
-        src={Sale}
-        alt="Sale Tag"
-        className="w-[85px] h-[57px] object-contain"
-      />
-    </div>
-
-    <img
-      src={product.image}
-      alt={product.title}
-      className="w-[120px] h-[120px] sm:w-[150px] sm:h-[150px] md:w-[180px] md:h-[180px] object-contain mx-auto mt-4"
-    />
-
-    <div className="mt-4 flex flex-col items-center gap-2">
-      <h3 className="text-base sm:text-lg md:text-xl font-medium text-[#151875]">
-        {product.title}
-      </h3>
-      <p className="text-xs sm:text-sm md:text-base text-gray-500">
-        Category: {product.category}
-      </p>
-    </div>
-
-    <div className="mt-4 flex justify-between items-center">
-      <span className="text-base sm:text-lg md:text-xl font-bold text-[#151875]">
-        ${product.price}
-      </span>
-
-      <span className="text-xs sm:text-sm md:text-base text-[#FB2448] line-through">
-        ${(product.price * 1.5).toFixed(2)}
-      </span>
-    </div>
-  </div>
-);
-
-ProductCard.propTypes = {
-  product: PropTypes.shape({
-    image: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    category: PropTypes.string,
-  }).isRequired,
-};
-
-const LatestProduct = () => {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await fetch("https://fakestoreapi.com/products?limit=8");
-        const data = await response.json();
-
-        const transformedData = data.map((product) => ({
-          id: product.id,
-          title: product.title,
-          price: product.price,
-          image: product.image,
-          category: product.category,
-        }));
-
-        setProducts(transformedData);
-      } catch (error) {
-        console.error("Error fetching products:", error);
-      }
-    };
-
-    fetchProducts();
-  }, []);
-
+const Offers = () => {
   return (
-    <section className="py-8 px-4 sm:py-12 sm:px-6 md:px-8 lg:py-16 lg:px-20">
-    
-      <div className="text-center mb-6 sm:mb-8">
-        <h2 className="mb-3 sm:mb-4 font-josefin text-xl sm:text-2xl md:text-3xl font-bold text-gray-800">
-          Latest Products
-        </h2>
-        <div className="flex justify-center gap-3 sm:gap-4 text-[#FB2448] text-sm sm:text-base">
-          <span className="border-b-2 border-[#FB2448]">New Arrival</span>
-          <span className="text-gray-500">Best Seller</span>
-          <span className="text-gray-500">Featured</span>
-          <span className="text-gray-500">Special Offer</span>
-        </div>
-      </div>
+    <div className="relative w-full py-12 px-4 sm:py-16 sm:px-6 lg:py-20 lg:px-16 bg-white shadow-lg">
+      
+      <h2 className="text-center mb-8 text-2xl sm:text-3xl font-bold text-gray-800" style={{ fontFamily: "Josefin Sans" }}>
+        What Shopex Offers
+      </h2>
 
       
-      <div>
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 sm:gap-6 lg:gap-8">
-          {products.map((product) => (
-            <div key={product.id}>
-              <ProductCard product={product} />
-            </div>
-          ))}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+        {/* Free Shipping */}
+        <div className="bg-white shadow-lg p-6 sm:p-8 rounded-lg text-center">
+          <div className="mb-4">
+            <img src={DeliveryImage} alt="Free Shipping" className="mx-auto w-10 h-14 sm:w-12 sm:h-16" />
+          </div>
+          <h3 className="text-lg sm:text-xl font-semibold text-[#151875] mb-2" style={{ fontFamily: "Josefin Sans" }}>
+            Free Shipping
+          </h3>
+          <p className="text-xs sm:text-sm text-gray-500">
+            Get free shipping on all orders above $50.
+          </p>
+        </div>
+
+        
+        <div className="bg-white shadow-lg p-6 sm:p-8 rounded-lg text-center">
+          <div className="mb-4">
+            <img src={CashbackImage} alt="24/7 Support" className="mx-auto w-14 h-14 sm:w-16 sm:h-16" />
+          </div>
+          <h3 className="text-lg sm:text-xl font-semibold text-[#151875] mb-2" style={{ fontFamily: "Josefin Sans" }}>
+            24/7 Support
+          </h3>
+          <p className="text-xs sm:text-sm text-gray-500">
+            We’re here to help you anytime with our 24/7 support team.
+          </p>
+        </div>
+
+        
+        <div className="bg-white shadow-lg p-6 sm:p-8 rounded-lg text-center">
+          <div className="mb-4">
+            <img src={PremiumImage} alt="Special Offers" className="mx-auto w-14 h-14 sm:w-16 sm:h-16" />
+          </div>
+          <h3 className="text-lg sm:text-xl font-semibold text-[#151875] mb-2" style={{ fontFamily: "Josefin Sans" }}>
+            Special Offers
+          </h3>
+          <p className="text-xs sm:text-sm text-gray-500">
+            Unlock special offers and discounts on selected products.
+          </p>
+        </div>
+
+        
+        <div className="bg-white shadow-lg p-6 sm:p-8 rounded-lg text-center">
+          <div className="mb-4">
+            <img src={ServiceImage} alt="High-Quality Products" className="mx-auto w-14 h-14 sm:w-16 sm:h-16" />
+          </div>
+          <h3 className="text-lg sm:text-xl font-semibold text-[#151875] mb-2" style={{ fontFamily: "Josefin Sans" }}>
+            High-Quality Products
+          </h3>
+          <p className="text-xs sm:text-sm text-gray-500">
+            Shop premium products curated just for you.
+          </p>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
-export default LatestProduct;
+export default Offers;
