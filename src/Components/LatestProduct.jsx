@@ -71,7 +71,7 @@ const LatestProduct = () => {
 
   return (
     <section className="py-12 px-4 md:px-8 lg:px-16 xl:px-20">
-      {/* Heading Section */}
+      
       <div className="text-center mb-8">
         <h2 className="mb-4 font-josefin text-2xl md:text-3xl font-bold text-gray-800">
           Latest Products
