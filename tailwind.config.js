@@ -1,8 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    './index.html',
+    './src/**/*.{js,ts,jsx,tsx}', // Ensure that JSX and TSX files are being processed
   ],
   theme: {
     extend: {
@@ -11,5 +11,6 @@ export default {
         josefin: ['Josefin Sans', 'sans-serif'],
       },
     },
-  }
-}
+  },
+  plugins: [],
+};

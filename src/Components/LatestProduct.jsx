@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import { useState, useEffect } from 'react'; 
+
 import PropTypes from "prop-types";
 
 import Sale from "../assets/Image/Sale.png";

@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
-import Hekto from '../assets/Image/Hekto.png'
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import { FaBars, FaTimes, FaSearch } from "react-icons/fa";
+import Hekto from "../assets/Image/Hekto.png";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <div className="relative bg-gradient-to-r from-blue-100 via-purple-100 to-blue-50 h-16 flex items-center justify-between px-6 md:px-10">
-      
+    <div className="relative bg-white h-16 flex items-center justify-between px-6 md:px-10 shadow-md">
+      {/* Logo */}
       <div className="flex items-center">
         <img
           src={Hekto}
@@ -16,7 +17,7 @@ const Navbar = () => {
         />
       </div>
 
-     
+      {/* Burger Menu for Mobile */}
       <button
         onClick={() => setIsMenuOpen(!isMenuOpen)}
         className="text-2xl text-[#0D0E43] md:hidden"
@@ -25,100 +26,111 @@ const Navbar = () => {
         {isMenuOpen ? <FaTimes /> : <FaBars />}
       </button>
 
-      
-      <ul className="hidden md:flex space-x-8">
+      {/* Desktop Navigation */}
+      <ul className="hidden md:flex items-center space-x-8">
         <li>
-          <a href="/" className="text-[#FB2E86] font-lato text-sm">
+          <Link to="/" className="text-[#FB2E86] font-lato text-sm hover:underline">
             Home
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="#" className="text-[#0D0E43] font-lato text-sm">
+          <Link to="#" className="text-[#0D0E43] font-lato text-sm hover:underline">
             Pages
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="#" className="text-[#0D0E43] font-lato text-sm">
+          <Link to="#" className="text-[#0D0E43] font-lato text-sm hover:underline">
             Products
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="#" className="text-[#0D0E43] font-lato text-sm">
+          <Link to="#" className="text-[#0D0E43] font-lato text-sm hover:underline">
             Blog
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/Shop" className="text-[#0D0E43] font-lato text-sm">
+          <Link to="/shop" className="text-[#0D0E43] font-lato text-sm hover:underline">
             Shop
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="#" className="text-[#0D0E43] font-lato text-sm">
+          <Link to="#" className="text-[#0D0E43] font-lato text-sm hover:underline">
             Contact
-          </a>
+          </Link>
+        </li>
+        {/* Search Input */}
+        <li>
+          <div className="relative flex items-center">
+            <input
+              type="text"
+              placeholder="Search..."
+              className="text-sm pl-4 pr-10 py-2 border rounded-full outline-none bg-[#F0F0F0] text-[#0D0E43]"
+            />
+            <button className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-[#FB2E86] p-2 rounded-full">
+              <FaSearch className="text-white text-lg" />
+            </button>
+          </div>
         </li>
       </ul>
 
-      
+      {/* Mobile Navigation */}
       <div
-        className={`fixed top-0 left-0 w-3/4 h-full bg-purple-600 border-r-2 border-white shadow-lg z-50 flex flex-col items-start py-8 px-6 transform transition-all duration-700 ease-in-out ${
-          isMenuOpen ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
-        }`}
+        className={`fixed top-0 left-0 w-3/4 h-full bg-white shadow-lg z-50 py-8 px-6 transform transition-transform duration-300 ease-in-out ${isMenuOpen ? "translate-x-0" : "-translate-x-full"}`}
       >
         <ul className="space-y-6">
           <li>
-            <a
-              href="/"
-              className="text-white font-lato text-lg"
+            <Link
+              to="/"
+              className="text-[#0D0E43] font-lato text-lg"
               onClick={() => setIsMenuOpen(false)}
             >
               Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#"
-              className="text-white font-lato text-lg"
+            <Link
+              to="#"
+              className="text-[#0D0E43] font-lato text-lg"
               onClick={() => setIsMenuOpen(false)}
             >
               Pages
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#"
-              className="text-white font-lato text-lg"
+            <Link
+              to="#"
+              className="text-[#0D0E43] font-lato text-lg"
               onClick={() => setIsMenuOpen(false)}
             >
               Products
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#"
-              className="text-white font-lato text-lg"
+            <Link
+              to="#"
+              className="text-[#0D0E43] font-lato text-lg"
               onClick={() => setIsMenuOpen(false)}
             >
               Blog
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="/Shop"
-              className="text-white font-lato text-lg"
+            <Link
+              to="/shop"
+              className="text-[#0D0E43] font-lato text-lg"
               onClick={() => setIsMenuOpen(false)}
             >
               Shop
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#"
-              className="text-white font-lato text-lg"
+            <Link
+              to="#"
+              className="text-[#0D0E43] font-lato text-lg"
               onClick={() => setIsMenuOpen(false)}
             >
               Contact
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

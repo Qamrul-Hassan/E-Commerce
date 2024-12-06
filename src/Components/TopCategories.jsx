@@ -1,4 +1,4 @@
-import React from "react";
+
 
 import chair1 from "../assets/Image/Top1.png";
 import chair2 from "../assets/Image/Top2.png";

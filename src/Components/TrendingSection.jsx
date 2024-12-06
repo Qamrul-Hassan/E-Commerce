@@ -8,13 +8,13 @@ const TrendingSection = () => {
     axios
       .get("https://jsonplaceholder.typicode.com/posts")
       .then((response) => {
-        console.log("Fetched Posts:", response.data); 
-        setPosts(response.data.slice(0, 4)); 
+        console.log("Fetched Posts:", response.data);
+        setPosts(response.data.slice(0, 4)); // Limit to 4 posts
       })
       .catch((error) => {
         console.error("Error fetching posts:", error);
       });
-  }, []); 
+  }, []);
 
   return (
     <div className="relative w-full pt-16 pb-16 bg-gray-100 z-10">
@@ -27,7 +27,7 @@ const TrendingSection = () => {
       {posts.length === 0 ? (
         <p>Loading posts...</p>
       ) : (
-        <div className="flex justify-center flex-wrap gap-8">
+        <div className="flex flex-wrap justify-center gap-8">
           {posts.map((post) => (
             <div
               key={post.id}
