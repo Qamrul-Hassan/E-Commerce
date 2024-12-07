@@ -178,7 +178,7 @@ const Shop = () => {
           </nav>
         </div>
 
-        {/* Image under pagination */}
+        
         <div
           className="mt-6 w-full h-[83px] bg-cover bg-center"
           style={{ backgroundImage: `url(${Brand})` }}
