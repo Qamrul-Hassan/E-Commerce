@@ -23,7 +23,7 @@ const NotFound = () => {
 
       {/* Back to Home Button */}
       <button
-        className="px-6 py-2 bg-pink-500 text-white font-medium rounded-lg hover:bg-pink-400 transition-all mb-4"
+        className="px-6 py-2 bg-pink-500 text-white font-medium rounded-lg hover:bg-pink-400 transition-all mb-8"
         onClick={() => navigate("/")}
       >
         Back to Home Page
