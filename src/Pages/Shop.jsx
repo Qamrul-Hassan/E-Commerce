@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { FaThLarge, FaList } from "react-icons/fa"; 
 import { FaCartPlus, FaHeart, FaSearchPlus } from "react-icons/fa"; 
 import ShopSideBar from "../Components/ShopSidebar";
-import Brand from "../assets/Image/Brand.png"; // Import your image
-import { Link } from "react-router-dom"; // Import Link for navigation
+import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa"; // Import React Icons for stars
+import { Link } from "react-router-dom";
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
@@ -35,7 +35,7 @@ const Shop = () => {
   });
 
   const filteredProducts = sortedProducts.filter((product) => {
-    return true; // Filter logic goes here if necessary
+    return true; // Add filter logic as needed
   });
 
   const indexOfLastProduct = currentPage * productsPerPage;
@@ -43,6 +43,25 @@ const Shop = () => {
   const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  // Function to generate the rating stars
+  const renderStars = (rating) => {
+    const fullStars = Math.floor(rating); // Full stars (integer part)
+    const halfStars = rating % 1 >= 0.5 ? 1 : 0; // Half star condition
+    const emptyStars = 5 - fullStars - halfStars; // Empty stars
+
+    return (
+      <>
+        {[...Array(fullStars)].map((_, index) => (
+          <FaStar key={index} className="text-yellow-500" />
+        ))}
+        {halfStars > 0 && <FaStarHalfAlt className="text-yellow-500" />}
+        {[...Array(emptyStars)].map((_, index) => (
+          <FaRegStar key={index} className="text-yellow-500" />
+        ))}
+      </>
+    );
+  };
 
   return (
     <div className="flex flex-col lg:flex-row p-8 min-h-screen gap-6">
@@ -119,7 +138,7 @@ const Shop = () => {
                   <img
                     src={product.image}
                     alt={product.title}
-                    className="w-full h-44 object-contain cursor-pointer" // Added cursor-pointer here
+                    className="w-full h-44 object-contain cursor-pointer"
                   />
                 </Link>
               </div>
@@ -128,23 +147,15 @@ const Shop = () => {
               <div className={`${viewType === "list" ? "flex-grow p-4 flex flex-col" : "p-4"}`}>
                 <div className="flex items-center justify-start gap-5 mb-2">
                   <h3 className="text-lg font-bold text-gray-800">{product.title}</h3>
-                  <div className="flex space-x-2">
-                    <span className="w-3 h-3 bg-yellow-400 rounded-full"></span>
-                    <span className="w-3 h-3 bg-red-500 rounded-full"></span>
-                    <span className="w-3 h-3 bg-blue-700 rounded-full"></span>
-                  </div>
                 </div>
 
                 <div className="flex items-center justify-start gap-4 mb-2">
                   <span className="text-lg font-semibold text-blue-500">${product.price}</span>
                   <span className="text-sm line-through text-red-500 ml-2">${product.price.toFixed(2)}</span>
-                  <div className="flex space-x-1 text-yellow-500">
-                    {[...Array(5)].map((_, index) => (
-                      <svg key={index} className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M10 15l-6 4V5l6-4l6 4v14l-6-4z" />
-                      </svg>
-                    ))}
-                  </div>
+                </div>
+
+                <div className="flex gap-1 text-yellow-500 mb-4">
+                  {renderStars(product.rating.rate)} {/* Render stars here */}
                 </div>
 
                 <div className="flex gap-3 items-center mt-auto">
