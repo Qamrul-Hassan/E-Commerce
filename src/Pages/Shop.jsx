@@ -3,6 +3,7 @@ import { FaThLarge, FaList } from "react-icons/fa";
 import { FaCartPlus, FaHeart, FaSearchPlus } from "react-icons/fa"; 
 import ShopSideBar from "../Components/ShopSidebar";
 import Brand from "../assets/Image/Brand.png"; // Import your image
+import { Link } from "react-router-dom"; // Import Link for navigation
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
@@ -114,11 +115,13 @@ const Shop = () => {
             >
               {/* Image */}
               <div className={`${viewType === "list" ? "flex-shrink-0 w-1/5" : "w-full"} p-2`}>
-                <img
-                  src={product.image}
-                  alt={product.title}
-                  className="w-full h-44 object-contain"
-                />
+                <Link to={`/product/${product.id}`}>
+                  <img
+                    src={product.image}
+                    alt={product.title}
+                    className="w-full h-44 object-contain cursor-pointer" // Added cursor-pointer here
+                  />
+                </Link>
               </div>
 
               {/* Details */}
@@ -137,20 +140,29 @@ const Shop = () => {
                   <span className="text-sm line-through text-red-500 ml-2">${product.price.toFixed(2)}</span>
                   <div className="flex space-x-1 text-yellow-500">
                     {[...Array(5)].map((_, index) => (
-                      <span key={index} className={`${index < 4 ? "text-yellow-400" : "text-gray-300"}`}>★</span>
+                      <svg key={index} className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 15l-6 4V5l6-4l6 4v14l-6-4z" />
+                      </svg>
                     ))}
                   </div>
                 </div>
 
-                <p className="text-sm text-gray-400 mb-4">
-                  {product.description.length > 100 ? `${product.description.substring(0, 100)}...` : product.description}
-                </p>
-
-                {/* Action Icons */}
-                <div className="flex space-x-2 text-gray-600 mt-10">
-                  <button className="p-2 rounded hover:bg-gray-200"><FaCartPlus /></button>
-                  <button className="p-2 rounded hover:bg-gray-200"><FaHeart /></button>
-                  <button className="p-2 rounded hover:bg-gray-200"><FaSearchPlus /></button>
+                <div className="flex gap-3 items-center mt-auto">
+                  <button
+                    className="text-white bg-red-600 p-2 rounded-full cursor-pointer"
+                  >
+                    <FaCartPlus />
+                  </button>
+                  <button
+                    className="text-white bg-red-600 p-2 rounded-full cursor-pointer"
+                  >
+                    <FaHeart />
+                  </button>
+                  <button
+                    className="text-white bg-blue-600 p-2 rounded-full cursor-pointer"
+                  >
+                    <FaSearchPlus />
+                  </button>
                 </div>
               </div>
             </div>
@@ -158,31 +170,22 @@ const Shop = () => {
         </div>
 
         {/* Pagination */}
-        <div className="flex justify-center mt-6">
+        <div className="flex justify-center mt-8">
           <nav>
-            <ul className="flex space-x-2">
-              {Array.from(
-                { length: Math.ceil(filteredProducts.length / productsPerPage) },
-                (_, index) => (
-                  <li key={index}>
-                    <button
-                      onClick={() => paginate(index + 1)}
-                      className={`px-3 py-1 rounded ${currentPage === index + 1 ? "bg-blue-500 text-white" : "bg-gray-200 text-gray-700 hover:bg-gray-300"}`}
-                    >
-                      {index + 1}
-                    </button>
-                  </li>
-                )
-              )}
+            <ul className="flex gap-4">
+              {[...Array(Math.ceil(filteredProducts.length / productsPerPage))].map((_, index) => (
+                <li key={index}>
+                  <button
+                    className={`px-4 py-2 rounded-full ${currentPage === index + 1 ? "bg-blue-500 text-white" : "bg-gray-200"}`}
+                    onClick={() => paginate(index + 1)}
+                  >
+                    {index + 1}
+                  </button>
+                </li>
+              ))}
             </ul>
           </nav>
         </div>
-
-        
-        <div
-          className="mt-6 w-full h-[83px] bg-cover bg-center"
-          style={{ backgroundImage: `url(${Brand})` }}
-        />
       </div>
     </div>
   );
