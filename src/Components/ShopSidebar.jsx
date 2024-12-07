@@ -92,8 +92,11 @@ const ShopSideBar = ({ activeFilters, setActiveFilters }) => {
       <div className="mb-6">
         <h3 className="text-lg font-semibold border-b-2 pb-2 mb-4 text-blue-500">Colors</h3>
         <div className="flex gap-4">
-          {["Blue", "Red", "Black"].map((color) => (
-            <label key={color} className="flex items-center cursor-pointer">
+          {["Blue", "Red", "Black", "Green", "Yellow"].map((color) => (
+            <label
+              key={color}
+              className="group flex items-center cursor-pointer"
+            >
               <input
                 type="checkbox"
                 className="mr-2"
@@ -101,7 +104,9 @@ const ShopSideBar = ({ activeFilters, setActiveFilters }) => {
                 onChange={() => handleFilterChange("colors", color)}
               />
               <FaCircle className={`text-${color.toLowerCase()}-500`} />
-              {color}
+              <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                {color}
+              </span>
             </label>
           ))}
         </div>
