@@ -1,34 +1,33 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import NotFoundImage from "../assets/Image/404.png"; 
+import NotFoundImage from "../assets/Image/404.png"; // Ensure the correct path
+
 const NotFound = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="relative flex flex-col items-center justify-center bg-[#F6F5FF] h-screen">
-      
-      <h1 className="text-[80px] md:text-[90px] font-extrabold text-pink-600 mt-4">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-[#F6F5FF]">
+      {/* 404 Heading */}
+      <h1 className="text-[100px] md:text-[120px] font-extrabold text-pink-600">
         404
       </h1>
 
-      
-      <div className="flex-grow flex items-center justify-center">
+      {/* Not Found Image */}
+      <div className="w-full flex justify-center mb-6">
         <img
           src={NotFoundImage}
           alt="Not Found"
-          className="w-[70%] md:w-[75%] h-auto object-contain"
+          className="w-[80%] md:w-[600px] h-auto object-contain"
         />
       </div>
 
-      
-      <div className="mt-2 mb-10">
-        <button
-          className="px-6 py-3 bg-pink-500 text-white font-medium rounded-lg hover:bg-pink-400 transition-all"
-          onClick={() => navigate("/")}
-        >
-          Back to Home Page
-        </button>
-      </div>
+      {/* Back to Home Button */}
+      <button
+        className="px-6 py-3 bg-pink-500 text-white font-medium rounded-lg hover:bg-pink-400 transition-all"
+        onClick={() => navigate("/")}
+      >
+        Back to Home Page
+      </button>
     </div>
   );
 };
