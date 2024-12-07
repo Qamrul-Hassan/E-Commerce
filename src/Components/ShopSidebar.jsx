@@ -92,7 +92,7 @@ const ShopSideBar = ({ activeFilters, setActiveFilters }) => {
       <div className="mb-6">
         <h3 className="text-lg font-semibold border-b-2 pb-2 mb-4 text-blue-500">Colors</h3>
         <div className="flex gap-4">
-          {["Blue", "Red", "Black", "Green", "Yellow"].map((color) => (
+          {["Blue", "Red", "Black"].map((color) => (
             <label key={color} className="flex items-center cursor-pointer">
               <input
                 type="checkbox"
