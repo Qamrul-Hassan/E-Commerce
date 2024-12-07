@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FaThLarge, FaList } from "react-icons/fa"; 
 import { FaCartPlus, FaHeart, FaSearchPlus } from "react-icons/fa"; 
 import ShopSideBar from "../Components/ShopSidebar";
+import Brand from "../assets/Image/Brand.png"; // Import your image
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
@@ -176,6 +177,12 @@ const Shop = () => {
             </ul>
           </nav>
         </div>
+
+        {/* Image under pagination */}
+        <div
+          className="mt-6 w-full h-[83px] bg-cover bg-center"
+          style={{ backgroundImage: `url(${Brand})` }}
+        />
       </div>
     </div>
   );

@@ -8,13 +8,16 @@ import {
 import RouteLayout from "./Pages/RouteLayout"; // Ensure this file exists and is named correctly.
 import Home from "./Pages/Home"; // Ensure the file and path are correct.
 import Shop from "./Pages/Shop"; // Ensure the file and path are correct.
+import NotFound from "./Pages/NotFound"; // Ensure the file and path are correct.
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RouteLayout />}>
       {/* Define nested routes */}
-      <Route index element={<Home />} /> {/* This is the default route */}
-      <Route path="shop" element={<Shop />} /> {/* Route for the Shop page */}
+      <Route index element={<Home />} /> {/* Default route */}
+      <Route path="shop" element={<Shop />} /> {/* Shop route */}
+      {/* Add a catch-all route for non-existent paths */}
+      <Route path="*" element={<NotFound />} /> {/* NotFound page */}
     </Route>
   )
 );
