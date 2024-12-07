@@ -96,7 +96,7 @@ const ContactUs = () => {
             </div>
             <button
               type="submit"
-              className="bg-pink-500 text-white py-3 px-6 rounded text-sm lg:text-base hover:bg-pink-600"
+              className="bg-pink-500 text-white py-2 px-6 rounded text-sm lg:text-base hover:bg-pink-600"
             >
               Send Mail
             </button>
