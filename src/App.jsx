@@ -7,15 +7,17 @@ import {
 } from "react-router-dom";
 import RouteLayout from "./Pages/RouteLayout";
 import Home from "./Pages/Home";
-import Shop from "./Pages/Shop";
-import NotFound from "./Pages/NotFound"; // Import the NotFound component
+import ContactUs from "./Pages/ContactUs";
+import Shop from "./Pages/Shop";  // Import Shop page
+import NotFound from "./Pages/NotFound";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RouteLayout />}>
-      <Route index element={<Home />} /> {/* Default route */}
-      <Route path="shop" element={<Shop />} /> {/* Shop page */}
-      <Route path="*" element={<NotFound />} /> {/* Fallback for unmatched routes */}
+      <Route index element={<Home />} />
+      <Route path="contact" element={<ContactUs />} />
+      <Route path="shop" element={<Shop />} />  {/* Add the Shop route */}
+      <Route path="*" element={<NotFound />} />
     </Route>
   )
 );
