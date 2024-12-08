@@ -1,21 +1,53 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaBars, FaTimes, FaSearch } from "react-icons/fa";
-import Hekto from "../assets/Image/Hekto.png"; // Change path if needed
+import Hekto from "../assets/Image/Hekto.png";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState(""); // Search term state
+  const [products, setProducts] = useState([]); // Products from API
+  const [filteredProducts, setFilteredProducts] = useState([]); // Filtered products based on search
+
+  // Fetch products from API when the component mounts
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch("https://fakestoreapi.com/products"); // Replace with your API URL
+        const data = await response.json();
+        setProducts(data); // Store products in state
+        setFilteredProducts(data); // Initially show all products
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
+  // Handle search term change and filter products
+  const handleSearchChange = (e) => {
+    const value = e.target.value;
+    setSearchTerm(value);
+
+    // Filter products based on the search term
+    if (value.trim() === "") {
+      setFilteredProducts(products); // If search term is empty, show all products
+    } else {
+      const results = products.filter((product) =>
+        product.title.toLowerCase().includes(value.toLowerCase()) // Adjust to search by relevant field
+      );
+      setFilteredProducts(results);
+    }
+  };
 
   return (
     <div>
-      {/* Navbar */}
       <div className="relative bg-white h-16 flex items-center justify-between px-6 md:px-10 shadow-md">
-        {/* Logo */}
         <div className="flex items-center">
           <img src={Hekto} alt="Hekto Logo" className="h-10 w-auto object-contain" />
         </div>
 
-        {/* Burger Menu for Mobile */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="text-2xl text-[#0D0E43] md:hidden"
@@ -24,7 +56,6 @@ const Navbar = () => {
           {isMenuOpen ? <FaTimes /> : <FaBars />}
         </button>
 
-        {/* Desktop Navigation */}
         <ul className="hidden md:flex items-center space-x-8">
           <li>
             <NavLink
@@ -80,12 +111,14 @@ const Navbar = () => {
               Contact
             </NavLink>
           </li>
-          {/* Search Input */}
+
           <li>
             <div className="relative flex items-center">
               <input
                 type="text"
                 placeholder="Search..."
+                value={searchTerm}
+                onChange={handleSearchChange} // Update state on input change
                 className="text-sm pl-10 pr-4 py-2 border rounded-full outline-none bg-[#F0F0F0] text-[#0D0E43]"
               />
               <button className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-[#FB2E86] p-2 rounded-full">
@@ -95,7 +128,6 @@ const Navbar = () => {
           </li>
         </ul>
 
-        {/* Mobile Navigation */}
         <div
           className={`fixed top-0 left-0 w-[75%] h-[70%] rounded-2xl bg-[#7E33E0] shadow-lg z-50 py-8 px-6 mobile-menu transform transition-transform duration-500 ease-in-out  ${
             isMenuOpen ? "translate-x-0" : "-translate-x-full"
@@ -163,15 +195,35 @@ const Navbar = () => {
                 <input
                   type="text"
                   placeholder="Search..."
+                  value={searchTerm}
+                  onChange={handleSearchChange} // Update state on input change
                   className="text-sm pl-10 pr-4 py-2 border rounded-full outline-none bg-[#F0F0F0] text-[#0D0E43]"
                 />
-               
-              
               </div>
             </li>
           </ul>
         </div>
       </div>
+
+      {/* Display filtered products */}
+      {searchTerm && (
+        <div className="mt-4 px-6">
+          <h2 className="text-xl font-semibold">Search Results:</h2>
+          <ul className="space-y-2">
+            {filteredProducts.length > 0 ? (
+              filteredProducts.map((product) => (
+                <li key={product.id} className="text-sm text-[#0D0E43]">
+                  <Link to={`/product/${product.id}`} className="hover:underline">
+                    {product.title} {/* Clicking will go to product detail page */}
+                  </Link>
+                </li>
+              ))
+            ) : (
+              <li className="text-sm text-gray-500">No products found</li>
+            )}
+          </ul>
+        </div>
+      )}
     </div>
   );
 };
