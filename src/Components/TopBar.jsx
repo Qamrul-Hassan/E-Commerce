@@ -10,7 +10,7 @@ const TopBar = () => {
       <div className="flex items-center space-x-6 text-sm">
         <div className="flex items-center space-x-2">
           <FaEnvelope title="Email" />
-          <span className="font-josefin font-semibold">mhhasanul@gmail.com</span>
+          <span className="font-josefin font-semibold">mdqamrul74@gmail.com</span>
         </div>
         <div className="flex items-center space-x-2">
           <FaPhoneAlt title="Phone" />
