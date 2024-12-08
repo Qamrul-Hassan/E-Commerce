@@ -4,7 +4,7 @@ import { FaCartPlus, FaHeart, FaSearchPlus } from "react-icons/fa";
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa"; // Import React Icons for stars
 
 const ProductDetails = () => {
-  const { id } = useParams();
+  const { id } = useParams(); // Get product ID from the URL params
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
@@ -73,13 +73,13 @@ const ProductDetails = () => {
 
           {/* Right Section (Product details) */}
           <div className="w-1/4 flex flex-col justify-between">
-            <h1 className="text-3xl font-bold text-gray-800">{product.title}</h1>
+            <h1 className="text-2xl font-bold text-gray-800">{product.title}</h1>
             <div className="flex items-center justify-between mt-4">
               <span className="text-lg font-semibold text-blue-500">
                 ${product.price}
               </span>
               {product.price < product.price * 1.2 && (
-                <span className="text-sm line-through text-red-500 ml-10">
+                <span className="text-sm line-through text-red-500">
                   ${(product.price * 1.2).toFixed(2)}
                 </span>
               )}
