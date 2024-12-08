@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { FaThLarge, FaList } from "react-icons/fa"; 
 import { FaCartPlus, FaHeart, FaSearchPlus } from "react-icons/fa"; 
 import ShopSideBar from "../Components/ShopSidebar";
-import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa"; // Import React Icons for stars
+import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa"; 
 import { Link } from "react-router-dom";
-import PageLayout from "../Components/PageLayout"; // Import PageLayout component
+import PageLayout from "../Components/PageLayout";
 
 const Shop = () => {
   const [products, setProducts] = useState([]);

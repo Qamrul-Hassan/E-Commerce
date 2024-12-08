@@ -1,6 +1,7 @@
 import React from "react";
 import PageLayout from "../Components/PageLayout"; 
 import illustration from "../assets/Image/Brand.png"; 
+
 const LoginPage = () => {
   return (
     <PageLayout pageTitle="My Account">
@@ -53,16 +54,16 @@ const LoginPage = () => {
         </p>
       </div>
 
-      <div className="relative w-full flex justify-center mt-12">
+      <div className="relative w-full flex justify-center">
         <img
           src={illustration}
           alt="Illustration"
-          className="w-full max-w-[904px] h-[93px] object-contain"
+          className="w-full max-w-[904px] h-[83px] object-contain"
           style={{
             position: "absolute",
             left: "50%",
             transform: "translateX(-50%)",
-            top: "100px",
+            top: "50px", // Reduced the gap here
           }}
         />
       </div>
