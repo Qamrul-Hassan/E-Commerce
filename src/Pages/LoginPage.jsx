@@ -54,7 +54,7 @@ const LoginPage = () => {
         </p>
       </div>
 
-      <div className="relative w-full flex justify-center mt-2"> {/* Adjusted margin-top here */}
+      <div className="relative w-full flex justify-center mt-1"> {/* Adjusted margin-top here */}
         <img
           src={illustration}
           alt="Illustration"
