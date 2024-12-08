@@ -54,17 +54,11 @@ const LoginPage = () => {
         </p>
       </div>
 
-      <div className="relative w-full flex justify-center">
+      <div className="relative w-full flex justify-center mt-8"> {/* Adjusted margin-top here */}
         <img
           src={illustration}
           alt="Illustration"
-          className="w-full max-w-[904px] h-[83px] object-contain"
-          style={{
-            position: "absolute",
-            left: "50%",
-            transform: "translateX(-50%)",
-            top: "50px", // Reduced the gap here
-          }}
+          className="w-full max-w-[904px] h-[83px] object-contain absolute left-1/2 transform -translate-x-1/2"
         />
       </div>
     </PageLayout>
