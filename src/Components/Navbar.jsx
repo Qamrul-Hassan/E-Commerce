@@ -5,18 +5,18 @@ import Hekto from "../assets/Image/Hekto.png";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState(""); // Search term state
-  const [products, setProducts] = useState([]); // Products from API
-  const [filteredProducts, setFilteredProducts] = useState([]); // Filtered products based on search
+  const [searchTerm, setSearchTerm] = useState(""); 
+  const [products, setProducts] = useState([]); 
+  const [filteredProducts, setFilteredProducts] = useState([]); 
 
-  // Fetch products from API when the component mounts
+  
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch("https://fakestoreapi.com/products"); // Replace with your API URL
+        const response = await fetch("https://fakestoreapi.com/products"); 
         const data = await response.json();
-        setProducts(data); // Store products in state
-        setFilteredProducts(data); // Initially show all products
+        setProducts(data); 
+        setFilteredProducts(data); 
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -25,17 +25,17 @@ const Navbar = () => {
     fetchProducts();
   }, []);
 
-  // Handle search term change and filter products
+  
   const handleSearchChange = (e) => {
     const value = e.target.value;
     setSearchTerm(value);
 
-    // Filter products based on the search term
+    
     if (value.trim() === "") {
-      setFilteredProducts(products); // If search term is empty, show all products
+      setFilteredProducts(products); 
     } else {
       const results = products.filter((product) =>
-        product.title.toLowerCase().includes(value.toLowerCase()) // Adjust to search by relevant field
+        product.title.toLowerCase().includes(value.toLowerCase())
       );
       setFilteredProducts(results);
     }
@@ -189,14 +189,14 @@ const Navbar = () => {
               </NavLink>
             </li>
 
-            {/* Search Bar in Mobile Menu */}
+            
             <li>
               <div className="relative flex items-center">
                 <input
                   type="text"
                   placeholder="Search..."
                   value={searchTerm}
-                  onChange={handleSearchChange} // Update state on input change
+                  onChange={handleSearchChange} 
                   className="text-sm pl-10 pr-4 py-2 border rounded-full outline-none bg-[#F0F0F0] text-[#0D0E43]"
                 />
               </div>
@@ -205,7 +205,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Display filtered products */}
+    
       {searchTerm && (
         <div className="mt-4 px-6">
           <h2 className="text-xl font-semibold">Search Results:</h2>
@@ -214,7 +214,7 @@ const Navbar = () => {
               filteredProducts.map((product) => (
                 <li key={product.id} className="text-sm text-[#0D0E43]">
                   <Link to={`/product/${product.id}`} className="hover:underline">
-                    {product.title} {/* Clicking will go to product detail page */}
+                    {product.title} 
                   </Link>
                 </li>
               ))
