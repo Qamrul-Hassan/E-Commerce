@@ -165,7 +165,7 @@ const Navbar = () => {
                   placeholder="Search..."
                   className="text-sm pl-10 pr-4 py-2 border rounded-full outline-none bg-[#F0F0F0] text-[#0D0E43]"
                 />
-                <button className="absolute top-1/2 right-24 transform -translate-y-1/2 bg-[#FB2E86] p-2 rounded-full">
+                <button className="absolute top-1/2 right-14 transform -translate-y-1/2 bg-[#FB2E86] p-2 rounded-full">
                   <FaSearch className="text-white text-lg" />
                 </button>
               </div>
