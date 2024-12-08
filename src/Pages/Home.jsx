@@ -1,4 +1,3 @@
-
 import FeaturedSection from "../Components/FeaturedSection";
 import LatestProduct from "../Components/LatestProduct";
 import PromotionSection from "../Components/PromotionSection";
@@ -10,17 +9,13 @@ import TopCategories from "../Components/TopCategories";
 import NewsLetter from "../Components/NewsLetter";
 import LatestBlog from "../Components/LatestBlog";
 
-
-
 const Home = () => {
   return (
     <div>
-      {/* Welcome Header */}
       <div className="text-center mb-8">
         <h1 className="text-4xl font-bold">Welcome to Our Shop</h1>
       </div>
 
-      {/* Main Sections */}
       <PromotionSection />
       <FeaturedSection />
       <LatestProduct />
@@ -31,8 +26,6 @@ const Home = () => {
       <TopCategories />
       <NewsLetter />
       <LatestBlog />
-      
-      
     </div>
   );
 };

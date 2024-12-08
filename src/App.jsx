@@ -6,6 +6,7 @@ import ContactUs from "./Pages/ContactUs";
 import Shop from "./Pages/Shop";
 import ProductDetails from "./Pages/ProductDetails";
 import NotFound from "./Pages/NotFound";
+import LoginPage from "./Pages/LoginPage";  // Import LoginPage
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -14,7 +15,8 @@ const router = createBrowserRouter(
       <Route path="contact" element={<ContactUs />} />
       <Route path="shop" element={<Shop />} />
       <Route path="product/:id" element={<ProductDetails />} />
-      <Route path="*" element={<NotFound />} /> {/* Catch-all route for 404 */}
+      <Route path="login" element={<LoginPage />} />  {/* Add route for LoginPage */}
+      <Route path="*" element={<NotFound />} />
     </Route>
   )
 );

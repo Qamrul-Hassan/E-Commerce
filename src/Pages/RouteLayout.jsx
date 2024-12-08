@@ -7,12 +7,14 @@ import Footer from "../Components/Footer";
 const RouteLayout = () => {
   return (
     <>
-      <TopBar />
-      <Navbar />
+      <TopBar /> {/* Only include TopBar once here */}
+      <Navbar /> {/* Only include Navbar once here */}
+      
       <main className="container mx-auto py-4">
-        <Outlet />
+        <Outlet /> {/* This renders the page content */}
       </main>
-      <Footer />
+      
+      <Footer /> {/* Footer is also included once */}
     </>
   );
 };
