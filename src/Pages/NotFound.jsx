@@ -1,7 +1,6 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import NotFoundImage from "../assets/Image/404.png"; // Ensure the correct path
 
+import { useNavigate } from "react-router-dom";
+import NotFoundImage from "../assets/Image/404.png"; 
 const NotFound = () => {
   const navigate = useNavigate();
 
@@ -12,7 +11,7 @@ const NotFound = () => {
         404
       </h1>
 
-      {/* Not Found Image */}
+    
       <div className="w-full flex justify-center mb-2">
         <img
           src={NotFoundImage}
@@ -21,7 +20,7 @@ const NotFound = () => {
         />
       </div>
 
-      {/* Back to Home Button */}
+    
       <button
         className="px-6 py-2 bg-pink-500 text-white font-medium rounded-lg hover:bg-pink-400 transition-all mb-4"
         onClick={() => navigate("/")}

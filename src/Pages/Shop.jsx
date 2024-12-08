@@ -36,7 +36,7 @@ const Shop = () => {
   });
 
   const filteredProducts = sortedProducts.filter((product) => {
-    return true; // Add filter logic as needed
+    return true; 
   });
 
   const indexOfLastProduct = currentPage * productsPerPage;
@@ -45,11 +45,11 @@ const Shop = () => {
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  // Function to generate the rating stars
+  
   const renderStars = (rating) => {
-    const fullStars = Math.floor(rating); // Full stars (integer part)
-    const halfStars = rating % 1 >= 0.5 ? 1 : 0; // Half star condition
-    const emptyStars = 5 - fullStars - halfStars; // Empty stars
+    const fullStars = Math.floor(rating); 
+    const halfStars = rating % 1 >= 0.5 ? 1 : 0; 
+    const emptyStars = 5 - fullStars - halfStars; 
 
     return (
       <>
@@ -128,7 +128,7 @@ const Shop = () => {
             </div>
           </div>
 
-          {/* Product Cards */}
+          
           <div
             className={`${viewType === "grid" ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" : "space-y-6"}`}
           >
@@ -137,7 +137,7 @@ const Shop = () => {
                 key={product.id}
                 className={`bg-white shadow-md rounded-lg overflow-hidden ${viewType === "list" ? "flex" : ""}`}
               >
-                {/* Image */}
+                
                 <div className={`${viewType === "list" ? "flex-shrink-0 w-1/5" : "w-full"} p-2`}>
                   <Link to={`/product/${product.id}`}>
                     <img
@@ -148,7 +148,7 @@ const Shop = () => {
                   </Link>
                 </div>
 
-                {/* Details */}
+                
                 <div className={`${viewType === "list" ? "flex-grow p-4 flex flex-col" : "p-4"}`}>
                   <div className="flex items-center justify-start gap-5 mb-2">
                     <h3 className="text-lg font-bold text-gray-800">{product.title}</h3>
@@ -185,7 +185,7 @@ const Shop = () => {
             ))}
           </div>
 
-          {/* Pagination */}
+          
           <div className="flex justify-center mt-8">
             <nav>
               <ul className="flex gap-4">

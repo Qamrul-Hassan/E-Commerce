@@ -5,9 +5,6 @@ const LoginPage = () => {
   return (
     <PageLayout pageTitle="My Account">
     
-      
-
-      {/* Login Form */}
       <div className="bg-white p-8 rounded shadow-md w-full max-w-2xl mx-auto">
         <h2 className="text-2xl font-semibold text-center mb-2">Login</h2>
         <p className="text-gray-500 text-center mb-6">
@@ -56,7 +53,6 @@ const LoginPage = () => {
         </p>
       </div>
 
-      {/* Bottom Image */}
       <div className="relative w-full flex justify-center mt-12">
         <img
           src={illustration}

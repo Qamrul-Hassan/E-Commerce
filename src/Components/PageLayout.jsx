@@ -1,4 +1,4 @@
-import PropTypes from "prop-types"; // Add PropTypes import
+import PropTypes from "prop-types";
 
 const PageLayout = ({ pageTitle, showHeader = true, children }) => {
   return (
@@ -20,7 +20,7 @@ const PageLayout = ({ pageTitle, showHeader = true, children }) => {
   );
 };
 
-// PropTypes validation
+
 PageLayout.propTypes = {
   pageTitle: PropTypes.string.isRequired,
   showHeader: PropTypes.bool,

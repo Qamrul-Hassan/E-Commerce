@@ -1,16 +1,16 @@
-import React from "react";
-import PageLayout from "../components/PageLayout"; // Import the reusable PageLayout
+
+import PageLayout from "../Components/PageLayout"; 
 import illustration from "../assets/Image/ContactUs.png";
 import { FaMapMarkerAlt, FaEnvelope, FaPhoneAlt } from "react-icons/fa";
 
 const ContactUs = () => {
   return (
     <PageLayout pageTitle="Contact Us">
-      {/* Page content */}
+      
       <div className="min-h-screen bg-white flex flex-col justify-center items-center px-6 lg:px-16">
-        {/* Grid Container */}
+        
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full max-w-5xl">
-          {/* Information About Us */}
+          
           <div>
             <h2 className="text-xl lg:text-2xl font-bold text-[#0D0E43]">Information About Us</h2>
             <p className="text-sm lg:text-base text-gray-600 mt-4">
@@ -24,7 +24,7 @@ const ContactUs = () => {
             </div>
           </div>
 
-          {/* Contact Way */}
+          
           <div>
             <h2 className="text-xl lg:text-2xl font-bold text-[#0D0E43]">Contact Way</h2>
             <ul className="mt-4 space-y-4 text-sm lg:text-base">
@@ -44,9 +44,9 @@ const ContactUs = () => {
           </div>
         </div>
 
-        {/* Get In Touch Section */}
+        
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full max-w-5xl mt-12">
-          {/* Form Section */}
+          
           <div>
             <h2 className="text-xl lg:text-2xl font-bold text-[#0D0E43]">Get In Touch</h2>
             <p className="text-sm lg:text-base text-gray-600 mt-4">
@@ -106,7 +106,7 @@ const ContactUs = () => {
             </form>
           </div>
 
-          {/* Illustration */}
+        
           <div className="flex justify-center items-center">
             <img
               src={illustration}

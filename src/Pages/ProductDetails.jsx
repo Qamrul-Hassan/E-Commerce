@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { FaCartPlus, FaHeart, FaSearchPlus } from "react-icons/fa";
-import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa"; // Import React Icons for stars
+import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa"; 
 
 const ProductDetails = () => {
-  const { id } = useParams(); // Get product ID from the URL params
+  const { id } = useParams(); 
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
@@ -18,13 +18,13 @@ const ProductDetails = () => {
 
   if (!product) return <div>Loading...</div>;
 
-  const rating = product.rating.rate; // Assuming rating is a decimal value (e.g., 4.5)
+  const rating = product.rating.rate; 
 
-  // Function to generate the rating stars
+  
   const renderStars = (rating) => {
-    const fullStars = Math.floor(rating); // Full stars (integer part)
-    const halfStars = rating % 1 >= 0.5 ? 1 : 0; // Half star condition
-    const emptyStars = 5 - fullStars - halfStars; // Empty stars
+    const fullStars = Math.floor(rating);
+    const halfStars = rating % 1 >= 0.5 ? 1 : 0; 
+    const emptyStars = 5 - fullStars - halfStars; 
 
     return (
       <>
@@ -43,7 +43,7 @@ const ProductDetails = () => {
     <div className="p-8">
       <div className="max-w-6xl mx-auto bg-white p-6 rounded-lg shadow-md">
         <div className="flex gap-6">
-          {/* Left Section (3 small images) */}
+          
           <div className="w-1/4 flex flex-col gap-4">
             <img
               src={product.image}
@@ -62,7 +62,7 @@ const ProductDetails = () => {
             />
           </div>
 
-          {/* Middle Section (Main large image) */}
+        
           <div className="w-1/4">
             <img
               src={product.image}
@@ -71,7 +71,7 @@ const ProductDetails = () => {
             />
           </div>
 
-          {/* Right Section (Product details) */}
+          
           <div className="w-1/4 flex flex-col justify-between">
             <h1 className="text-2xl font-bold text-gray-800">{product.title}</h1>
             <div className="flex items-center justify-between mt-4">
@@ -85,13 +85,13 @@ const ProductDetails = () => {
               )}
             </div>
             <div className="flex space-x-1 text-yellow-500 mt-2">
-              {renderStars(rating)} {/* Render stars here */}
+              {renderStars(rating)} 
             </div>
 
-            {/* Description */}
+            
             <p className="text-gray-600 mt-4">{product.description}</p>
 
-            {/* Colors */}
+            
             <div className="flex gap-2 mt-4">
               <span className="font-medium">Colors:</span>
               <div className="flex space-x-2">
@@ -101,7 +101,7 @@ const ProductDetails = () => {
               </div>
             </div>
 
-            {/* Buttons */}
+            
             <div className="flex gap-3 items-center mt-6">
               <button className="text-white bg-red-600 p-2 rounded-full cursor-pointer">
                 <FaCartPlus />
