@@ -6,7 +6,7 @@ const LoginPage = () => {
   return (
     <PageLayout pageTitle="My Account">
     
-      <div className="bg-white p-8 rounded shadow-md w-full max-w-xl mx-auto">
+      <div className="bg-white p-8 rounded shadow-md w-full max-w-lg mx-auto">
         <h2 className="text-2xl font-semibold text-center mb-2">Login</h2>
         <p className="text-gray-500 text-center mb-6">
           Please login using account details below.
