@@ -165,7 +165,11 @@ const Navbar = () => {
                   placeholder="Search..."
                   className="text-sm pl-10 pr-4 py-2 border rounded-full outline-none bg-[#F0F0F0] text-[#0D0E43]"
                 />
+<<<<<<< HEAD
                
+=======
+              
+>>>>>>> 1f9dbff25424fe0513d66114c10c44f816091feb
               </div>
             </li>
           </ul>
