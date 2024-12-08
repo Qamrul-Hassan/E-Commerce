@@ -58,7 +58,7 @@ const LoginPage = () => {
         <img
           src={illustration}
           alt="Illustration"
-          className="w-full max-w-[800px] h-[75px] object-contain absolute left-1/2 transform -translate-x-1/2"
+          className="w-full max-w-[400px] h-[75px] object-contain absolute left-1/2 transform -translate-x-1/2"
         />
       </div>
     </PageLayout>
