@@ -86,7 +86,7 @@ const Navbar = () => {
               <input
                 type="text"
                 placeholder="Search..."
-                className="text-sm pl-4 pr-10 py-2 border rounded-full outline-none bg-[#F0F0F0] text-[#0D0E43]"
+                className="text-sm pl-10 pr-4 py-2 border rounded-full outline-none bg-[#F0F0F0] text-[#0D0E43]"
               />
               <button className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-[#FB2E86] p-2 rounded-full">
                 <FaSearch className="text-white text-lg" />
@@ -97,7 +97,7 @@ const Navbar = () => {
 
         {/* Mobile Navigation */}
         <div
-          className={`fixed top-0 left-0 w-full h-full bg-[#7E33E0] shadow-lg z-50 py-8 px-6 mobile-menu transform transition-transform duration-500 ease-in-out ${
+          className={`fixed top-0 left-0 w-1/2 h-1/2 rounded-2xl bg-[#7E33E0] shadow-lg z-50 py-8 px-6 mobile-menu transform transition-transform duration-500 ease-in-out  ${
             isMenuOpen ? "translate-x-0" : "-translate-x-full"
           }`}
         >
@@ -156,12 +156,19 @@ const Navbar = () => {
                 Contact
               </NavLink>
             </li>
+
+            {/* Search Bar in Mobile Menu */}
             <li>
-              <input
-                type="text"
-                placeholder="Search..."
-                className="text-sm pl-4 pr-10 py-2 border rounded-full outline-none bg-[#F0F0F0] text-[#0D0E43]"
-              />
+              <div className="relative flex items-center">
+                <input
+                  type="text"
+                  placeholder="Search..."
+                  className="text-sm pl-10 pr-4 py-2 border rounded-full outline-none bg-[#F0F0F0] text-[#0D0E43]"
+                />
+                <button className="absolute top-1/2 right-24 transform -translate-y-1/2 bg-[#FB2E86] p-2 rounded-full">
+                  <FaSearch className="text-white text-lg" />
+                </button>
+              </div>
             </li>
           </ul>
         </div>
