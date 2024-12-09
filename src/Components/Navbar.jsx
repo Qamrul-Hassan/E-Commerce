@@ -9,7 +9,6 @@ const Navbar = () => {
   const [products, setProducts] = useState([]); 
   const [filteredProducts, setFilteredProducts] = useState([]); 
 
-  
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -24,7 +23,6 @@ const Navbar = () => {
 
     fetchProducts();
   }, []);
-
 
   const handleSearchChange = (e) => {
     const value = e.target.value;
@@ -111,19 +109,44 @@ const Navbar = () => {
             </NavLink>
           </li>
 
-          <li>
-            <div className="relative flex items-center">
-              <input
-                type="text"
-                placeholder="Search..."
-                value={searchTerm}
-                onChange={handleSearchChange} 
-                className="text-sm pl-10 pr-4 py-2 border rounded-full outline-none bg-[#F0F0F0] text-[#0D0E43]"
-              />
-              <button className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-[#FB2E86] p-2 rounded-full">
-                <FaSearch className="text-white text-lg" />
-              </button>
-            </div>
+          <li className="relative flex items-center">
+            <input
+              type="text"
+              placeholder="Search..."
+              value={searchTerm}
+              onChange={handleSearchChange} 
+              className="text-sm pl-10 pr-4 py-2 border rounded-full outline-none bg-[#F0F0F0] text-[#0D0E43]"
+            />
+            <button className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-[#FB2E86] p-2 rounded-full">
+              <FaSearch className="text-white text-lg" />
+            </button>
+
+            {/* Search Results */}
+            {searchTerm && (
+              <div className="absolute z-10 bg-white shadow-md mt-2 w-[300px] max-h-[300px] overflow-y-auto border rounded-lg top-full md:left-full md:right-0 left-0">
+                <ul className="space-y-4 p-2">
+                  {filteredProducts.length > 0 ? (
+                    filteredProducts.map((product) => (
+                      <li key={product.id} className="flex items-center space-x-2">
+                        <img
+                          src={product.image}
+                          alt={product.title}
+                          className="w-10 h-10 object-cover rounded-md"
+                        />
+                        <Link
+                          to={`/product/${product.id}`}
+                          className="text-sm text-[#0D0E43] hover:underline"
+                        >
+                          {product.title}
+                        </Link>
+                      </li>
+                    ))
+                  ) : (
+                    <li className="text-sm text-gray-500">No products found</li>
+                  )}
+                </ul>
+              </div>
+            )}
           </li>
         </ul>
 
@@ -203,18 +226,18 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Display search results with images */}
+      {/* Search Results */}
       {searchTerm && (
         <div className="mt-4 px-6">
           <h2 className="text-xl font-semibold">Search Results:</h2>
-          <ul className="space-y-4">
+          <ul className="space-y-2">
             {filteredProducts.length > 0 ? (
               filteredProducts.map((product) => (
-                <li key={product.id} className="flex items-center space-x-4 text-sm text-[#0D0E43]">
+                <li key={product.id} className="flex items-center space-x-2 text-sm text-[#0D0E43]">
                   <img
-                    src={product.image} 
+                    src={product.image}
                     alt={product.title}
-                    className="w-16 h-16 object-cover rounded-md"
+                    className="w-10 h-10 object-cover rounded-md"
                   />
                   <Link to={`/product/${product.id}`} className="hover:underline">
                     {product.title}
