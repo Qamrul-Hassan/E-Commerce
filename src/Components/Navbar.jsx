@@ -29,7 +29,7 @@ const Navbar = () => {
     setSearchTerm(value);
 
     if (value.trim() === "") {
-      setFilteredProducts(products);
+      setFilteredProducts(products);  // Reset to all products when search is empty
     } else {
       const results = products.filter((product) =>
         product.title.toLowerCase().includes(value.toLowerCase())
@@ -49,7 +49,7 @@ const Navbar = () => {
           />
         </div>
 
-        {/* Search Bar for smaller screens (5.5" or less) */}
+        {/* Search Bar for smaller screens */}
         <div className="md:hidden flex items-center space-x-2">
           <input
             type="text"
@@ -100,15 +100,15 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-  <NavLink
-    to="/blog"  // Update to actual path if needed
-    className={({ isActive }) =>
-      `text-sm font-lato ${isActive ? "text-[#FB2E86]" : "text-[#0D0E43]"} hover:underline`
-    }
-  >
-    Blog
-  </NavLink>
-</li>
+            <NavLink
+              to="/blog"
+              className={({ isActive }) =>
+                `text-sm font-lato ${isActive ? "text-[#FB2E86]" : "text-[#0D0E43]"} hover:underline`
+              }
+            >
+              Blog
+            </NavLink>
+          </li>
           <li>
             <NavLink
               to="/shop"
@@ -206,14 +206,15 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link
-              to="#"
-              className="font-lato text-lg"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Blog
-            </Link>
-          </li>
+  <NavLink
+    to="/blog"  // Update to the correct path
+    className={({ isActive }) =>
+      `text-lg font-lato ${isActive ? "text-white" : ""}`
+    }
+  >
+    Blog
+  </NavLink>
+</li>
           <li>
             <NavLink
               to="/shop"
