@@ -198,9 +198,9 @@ const BlogPage = () => {
               alt={product.title}
               className="w-full h-28 object-cover mb-4 rounded-md"
             />
-            <h5 className="text-gray-800 font-medium text-lg mb-2">{product.title}</h5>
+            <h5 className="text-gray-800 font-medium text-md mb-2">{product.title}</h5>
             <div className="flex items-center justify-between">
-              <span className="text-lg text-gray-800 font-semibold">${product.price.toFixed(2)}</span>
+              <span className="text-sm text-gray-800 font-semibold">${product.price.toFixed(2)}</span>
               <span className="text-sm text-red-500 line-through">${discountedPrice.toFixed(2)}</span>
             </div>
             <div className="mt-2">
