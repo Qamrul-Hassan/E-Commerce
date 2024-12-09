@@ -1,13 +1,13 @@
-import { FaEnvelope, FaPhoneAlt, FaHeart, FaShoppingCart } from "react-icons/fa";
+import { FaEnvelope, FaPhoneAlt, FaHeart, FaShoppingCart, FaBars } from "react-icons/fa"; // Import required icons
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
 const TopBar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // State to toggle the menu
 
   return (
     <div className="bg-purple-600 h-16 flex items-center justify-between px-4 text-white relative">
-      {/* Desktop Menu */}
+      {/* Left side content (Email, Phone) */}
       <div className="flex items-center space-x-6 text-sm">
         <div className="flex items-center space-x-2">
           <FaEnvelope title="Email" />
@@ -19,6 +19,7 @@ const TopBar = () => {
         </div>
       </div>
 
+      {/* Center content for larger screens */}
       <div className="hidden sm:flex items-center space-x-6 text-sm">
         <select
           className="bg-purple-600 border-none text-sm font-josefin text-white cursor-pointer outline-none focus:ring focus:ring-purple-400"
@@ -50,34 +51,23 @@ const TopBar = () => {
         <FaShoppingCart className="text-sm cursor-pointer" title="Shopping Cart" />
       </div>
 
-      {/* Mobile Menu Toggle Button */}
+      {/* Burger menu for smaller screens */}
       <div className="sm:hidden flex items-center space-x-4">
         <button
-          className="ml-4 text-white"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="text-white"
+          onClick={() => setIsMenuOpen(!isMenuOpen)} // Toggle menu visibility
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+          <FaBars
             className={`w-6 h-6 transition-transform duration-300 ${isMenuOpen ? "rotate-90" : ""}`}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
+          />
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile menu (Dropdown when burger menu is clicked) */}
       <div
-        className={`sm:hidden fixed top-16 left-0 w-full bg-purple-600 text-white p-4 z-10 transition-transform duration-500 ease-in-out ${
-          isMenuOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
+        className={`absolute top-16 left-0 w-full bg-purple-600 text-white p-4 sm:hidden z-10 transition-all duration-700 ease-in-out ${
+          isMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
+        } overflow-hidden`}
       >
         <select
           className="bg-purple-600 border-none text-sm font-josefin text-white cursor-pointer outline-none focus:ring focus:ring-purple-400 mb-2"
