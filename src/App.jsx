@@ -7,7 +7,7 @@ import Shop from "./Pages/Shop";
 import ProductDetails from "./Pages/ProductDetails";
 import NotFound from "./Pages/NotFound";
 import LoginPage from "./Pages/LoginPage";  
-import BlogPage from "./Pages/Blog Page";
+import BlogPage from "./Pages/BlogPage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
