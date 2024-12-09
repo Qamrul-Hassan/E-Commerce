@@ -27,7 +27,7 @@ const TrendingSection = () => {
       {posts.length === 0 ? (
         <p>Loading posts...</p>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 px-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 px-4 mx-auto max-w-7xl">
           {posts.map((post) => (
             <div
               key={post.id}
