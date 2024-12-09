@@ -1,12 +1,13 @@
 import { FaEnvelope, FaPhoneAlt, FaHeart, FaShoppingCart } from "react-icons/fa";
 import { useState } from "react";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import { Link } from "react-router-dom";
 
 const TopBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <div className="bg-purple-600 h-16 flex items-center justify-between px-4 text-white relative">
+      {/* Desktop Menu */}
       <div className="flex items-center space-x-6 text-sm">
         <div className="flex items-center space-x-2">
           <FaEnvelope title="Email" />
@@ -37,7 +38,6 @@ const TopBar = () => {
           <option value="Euro">Euro</option>
         </select>
 
-        {/* Use Link for navigation */}
         <Link to="/login" className="font-josefin font-semibold text-sm cursor-pointer">
           Login
         </Link>
@@ -50,20 +50,18 @@ const TopBar = () => {
         <FaShoppingCart className="text-sm cursor-pointer" title="Shopping Cart" />
       </div>
 
+      {/* Mobile Menu Toggle Button */}
       <div className="sm:hidden flex items-center space-x-4">
         <button
-           className={`fixed top-0 left-0 w-[75%] h-[70%] rounded-2xl bg-[#7E33E0] shadow-lg z-50 py-8 px-6 mobile-menu transform transition-transform duration-500 ease-in-out  ${
-            isMenuOpen ? "translate-x-0" : "-translate-x-full"
-          }`}
+          className="ml-4 text-white"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
-            className={`w-6 h-6 transition-transform duration-300 ${
-              isMenuOpen ? "rotate-90" : ""
-            }`}
+            className={`w-6 h-6 transition-transform duration-300 ${isMenuOpen ? "rotate-90" : ""}`}
           >
             <path
               strokeLinecap="round"
@@ -75,10 +73,11 @@ const TopBar = () => {
         </button>
       </div>
 
+      {/* Mobile Menu */}
       <div
-        className={`absolute top-16 left-0 w-full bg-purple-600 text-white p-4 sm:hidden z-10 transition-all duration-700 ease-in-out ${
-          isMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
-        } overflow-hidden`}
+        className={`sm:hidden fixed top-16 left-0 w-full bg-purple-600 text-white p-4 z-10 transition-transform duration-500 ease-in-out ${
+          isMenuOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
       >
         <select
           className="bg-purple-600 border-none text-sm font-josefin text-white cursor-pointer outline-none focus:ring focus:ring-purple-400 mb-2"
