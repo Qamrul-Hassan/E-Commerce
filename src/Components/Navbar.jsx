@@ -29,7 +29,7 @@ const Navbar = () => {
     setSearchTerm(value);
 
     if (value.trim() === "") {
-      setFilteredProducts(products);  // Reset to all products when search is empty
+      setFilteredProducts(products);  
     } else {
       const results = products.filter((product) =>
         product.title.toLowerCase().includes(value.toLowerCase())
@@ -49,7 +49,7 @@ const Navbar = () => {
           />
         </div>
 
-        {/* Search Bar for smaller screens */}
+        
         <div className="md:hidden flex items-center space-x-2">
           <input
             type="text"
@@ -64,12 +64,15 @@ const Navbar = () => {
         </div>
 
         <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="text-2xl text-[#0D0E43] md:hidden"
-          aria-label="Toggle Menu"
-        >
-          {isMenuOpen ? <FaTimes /> : <FaBars />}
-        </button>
+  onClick={() => {
+    setIsMenuOpen(!isMenuOpen);
+    console.log(isMenuOpen);  
+  }}
+  className="text-2xl text-[#0D0E43] md:hidden"
+  aria-label="Toggle Menu"
+>
+  {isMenuOpen ? <FaTimes /> : <FaBars />}
+</button>
 
         {/* Desktop Navbar */}
         <ul className="hidden md:flex items-center space-x-8">
