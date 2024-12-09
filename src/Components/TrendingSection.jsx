@@ -27,11 +27,11 @@ const TrendingSection = () => {
       {posts.length === 0 ? (
         <p>Loading posts...</p>
       ) : (
-        <div className="flex flex-wrap justify-center gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4">
           {posts.map((post) => (
             <div
               key={post.id}
-              className="relative w-full sm:w-[270px] lg:w-[270px] h-[420px] bg-white shadow-lg rounded-md overflow-hidden"
+              className="relative w-full h-[420px] bg-white shadow-lg rounded-md overflow-hidden"
               style={{
                 filter: "drop-shadow(0px 8px 40px rgba(49, 32, 138, 0.05))",
               }}
@@ -52,7 +52,7 @@ const TrendingSection = () => {
                 </div>
                 <div className="mt-4 flex justify-between items-center">
                   <span className="font-bold text-[#151875]">
-                    ${Math.floor(Math.random() * 100) + 10} 
+                    ${Math.floor(Math.random() * 100) + 10}
                   </span>
                   <button className="text-white bg-pink-500 px-4 py-2 rounded-md hover:bg-pink-600">
                     Add to Cart

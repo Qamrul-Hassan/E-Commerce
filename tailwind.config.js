@@ -1,8 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    './index.html', // Ensure your main HTML file is included
-    './src/**/*.{js,ts,jsx,tsx}', // Includes JS, TS, JSX, and TSX files inside the src directory
+    './index.html',
+    './src/**/*.{js,ts,jsx,tsx}', // Ensure this includes your React components
   ],
   theme: {
     extend: {
@@ -12,5 +12,5 @@ export default {
       },
     },
   },
-  plugins: [], // You can add plugins here if required
+  plugins: [],
 };
