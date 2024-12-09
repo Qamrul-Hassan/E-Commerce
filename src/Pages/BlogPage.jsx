@@ -85,11 +85,11 @@ const BlogPage = () => {
           <div className="col-span-3">
             {blogPosts.map((post, index) => (
               <div key={index} className="mb-10 border-b pb-6">
-                <img
-                  src={post.image}
-                  alt={`Blog Post ${index + 1}`}
-                  className="w-full rounded-lg mb-4"
-                />
+               <img
+  src={post.image}
+  alt={`Blog Post ${index + 1}`}
+  className="w-full rounded-lg mb-4"
+/>
                 <div className="text-sm text-purple-500 flex items-center">
                   <FaPenNib className="mr-2 text-yellow-500" />
                   <span className="text-lg font-semibold text-purple-500 mr-2">Surf Auxion</span>
@@ -114,12 +114,12 @@ const BlogPage = () => {
           <div className="col-span-1 space-y-10">
             {/* Categories */}
             <div>
-              <h4 className="font-semibold text-gray-800 mb-4">Categories</h4>
+              <h4 className="font-semibold text-gray-800 mb-4 ">Categories</h4>
               <div className="grid grid-cols-2 gap-2">
                 {categories.map((category, index) => (
                   <span
                     key={index}
-                    className="text-gray-600 text-sm bg-gray-100 px-3 py-1 rounded-md flex justify-between"
+                    className="text-gray-600 text-sm font-bold bg-gray-100 px-3 py-1 rounded-md flex justify-between hover:bg-pink-500 transition-colors duration-200"
                   >
                     {category.name} <span>({category.count})</span>
                   </span>
@@ -127,60 +127,66 @@ const BlogPage = () => {
               </div>
             </div>
 
-            {/* Recent Posts */}
-            <div>
-              <h4 className="font-semibold text-gray-800 mb-4">Recent Posts</h4>
-              {recentPosts.map((post, index) => (
-                <div key={index} className="flex items-center mb-4">
-                  <img
-                    src={post.image}
-                    alt={`Recent Post ${index + 1}`}
-                    className="w-16 h-16 rounded-lg object-cover mr-4"
-                  />
-                  <span className="text-sm text-gray-600">{post.title}</span>
-                </div>
-              ))}
-            </div>
+           {/* Recent Posts */}
+<div>
+  <h4 className="font-semibold text-gray-800 mb-4">Recent Posts</h4>
+  {recentPosts.map((post, index) => (
+    <div key={index} className="flex items-center mb-4">
+    <img
+  src={post.image}
+  alt={`Blog Post ${index + 1}`}
+  className="w-full rounded-lg mb-4"
+/>
+      <div>
+        <span className="block text-sm text-gray-800 font-medium">{post.title}</span>
+        <span className="text-xs text-gray-500">Aug 09 2020</span> {/* Example date */}
+      </div>
+    </div>
+  ))}
+</div>
 
-            {/* Sale Products Section */}
-            <div>
-              <h4 className="font-semibold text-gray-800 mb-4">Sale Products</h4>
-              <div className="flex flex-col space-y-4">
-                <div className="flex items-center mb-4">
-                  <img
-                    src={SaleProductImage1}
-                    alt="Sale Product 1"
-                    className="w-16 h-16 rounded-lg object-cover mr-4"
-                  />
-                  <div>
-                    <h5 className="text-gray-800 font-medium">Sale Product 1</h5>
-                    <span className="text-sm text-purple-500">$25.00</span>
-                  </div>
-                </div>
-                <div className="flex items-center mb-4">
-                  <img
-                    src={SaleProductImage2}
-                    alt="Sale Product 2"
-                    className="w-16 h-16 rounded-lg object-cover mr-4"
-                  />
-                  <div>
-                    <h5 className="text-gray-800 font-medium">Sale Product 2</h5>
-                    <span className="text-sm text-purple-500">$30.00</span>
-                  </div>
-                </div>
-                <div className="flex items-center mb-4">
-                  <img
-                    src={SaleProductImage3}
-                    alt="Sale Product 3"
-                    className="w-16 h-16 rounded-lg object-cover mr-4"
-                  />
-                  <div>
-                    <h5 className="text-gray-800 font-medium">Sale Product 3</h5>
-                    <span className="text-sm text-purple-500">$35.00</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+           {/* Sale Products Section */}
+<div>
+  <h4 className="font-semibold text-gray-800 mb-4">Sale Products</h4>
+  <div className="flex flex-col space-y-4">
+    <div className="flex items-center mb-4">
+      <img
+        src={SaleProductImage1}
+        alt="Sale Product 1"
+        className="w-16 h-16 rounded-lg object-cover mr-4"
+      />
+      <div>
+        <h5 className="text-gray-800 font-medium">Sale Product 1</h5>
+        <span className="text-xs text-gray-500">Aug 09 2020</span> {/* Example date */}
+        <span className="block text-sm text-purple-500">$25.00</span>
+      </div>
+    </div>
+    <div className="flex items-center mb-4">
+      <img
+        src={SaleProductImage2}
+        alt="Sale Product 2"
+        className="w-16 h-16 rounded-lg object-cover mr-4"
+      />
+      <div>
+        <h5 className="text-gray-800 font-medium">Sale Product 2</h5>
+        <span className="text-xs text-gray-500">Aug 10 2020</span> {/* Example date */}
+        <span className="block text-sm text-purple-500">$30.00</span>
+      </div>
+    </div>
+    <div className="flex items-center mb-4">
+      <img
+        src={SaleProductImage3}
+        alt="Sale Product 3"
+        className="w-16 h-16 rounded-lg object-cover mr-4"
+      />
+      <div>
+        <h5 className="text-gray-800 font-medium">Sale Product 3</h5>
+        <span className="text-xs text-gray-500">Aug 11 2020</span> {/* Example date */}
+        <span className="block text-sm text-purple-500">$35.00</span>
+      </div>
+    </div>
+  </div>
+</div>
 
            {/* Offer Products Section */}
 <div>
@@ -204,7 +210,7 @@ const BlogPage = () => {
               <span className="text-sm text-red-500 line-through">${discountedPrice.toFixed(2)}</span>
             </div>
             <div className="mt-2">
-              <span className="text-lg text-green-500 font-semibold">
+              <span className="text-sm text-green-500 font-semibold">
                 Discounted Price: ${discountedPrice.toFixed(2)}
               </span>
             </div>
@@ -231,15 +237,16 @@ const BlogPage = () => {
 
             {/* Tags */}
             <div>
-              <h4 className="font-semibold text-gray-800 mb-4">Tags</h4>
-              <div className="flex flex-wrap">
-                {tags.map((tag, index) => (
-                  <span
-                    key={index}
-                    className="text-sm text-gray-600 bg-gray-100 px-3 py-1 rounded-md mr-2 mb-2"
-                  >
-                    {tag}
-                  </span>
+            <h4 className="font-semibold text-gray-800 mb-4">Tags</h4>
+  <div className="flex flex-wrap">
+    {tags.map((tag, index) => (
+      <span
+        key={index}
+        className="text-sm text-gray-600 bg-gray-100 px-3 py-1 rounded-md mr-2 mb-2 relative cursor-pointer
+                   hover:text-pink-500 hover:underline"
+      >
+        {tag}
+      </span>                  
                 ))}
               </div>
             </div>
