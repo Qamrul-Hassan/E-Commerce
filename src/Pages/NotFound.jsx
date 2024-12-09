@@ -1,10 +1,12 @@
 
 import { useNavigate } from "react-router-dom";
+import PageLayout from "../Components/PageLayout"; 
 import NotFoundImage from "../assets/Image/404.png"; 
 const NotFound = () => {
   const navigate = useNavigate();
 
   return (
+    <PageLayout pageTitle="Page Not Found">
     <div className="min-h-screen flex flex-col items-center justify-center bg-[#F6F5FF] px-4">
       {/* 404 Heading */}
       <h1 className="text-[80px] sm:text-[90px] font-extrabold text-pink-600 mb-2">
@@ -28,6 +30,7 @@ const NotFound = () => {
         Back to Home Page
       </button>
     </div>
+    </PageLayout>
   );
 };
 

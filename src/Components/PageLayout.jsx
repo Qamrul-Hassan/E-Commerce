@@ -22,7 +22,7 @@ const PageLayout = ({ pageTitle, showHeader = true, children }) => {
           <img
             src={BrandImage} // Use the imported image
             alt="Brand"
-            className="mx-auto max-w-xs"
+            className="mx-auto max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl"
           />
         </div>
       </main>

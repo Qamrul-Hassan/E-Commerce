@@ -5,17 +5,17 @@ import Hekto from "../assets/Image/Hekto.png";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState(""); 
-  const [products, setProducts] = useState([]); 
-  const [filteredProducts, setFilteredProducts] = useState([]); 
+  const [searchTerm, setSearchTerm] = useState("");
+  const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch("https://fakestoreapi.com/products"); 
+        const response = await fetch("https://fakestoreapi.com/products");
         const data = await response.json();
-        setProducts(data); 
-        setFilteredProducts(data); 
+        setProducts(data);
+        setFilteredProducts(data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -29,7 +29,7 @@ const Navbar = () => {
     setSearchTerm(value);
 
     if (value.trim() === "") {
-      setFilteredProducts(products); 
+      setFilteredProducts(products);
     } else {
       const results = products.filter((product) =>
         product.title.toLowerCase().includes(value.toLowerCase())
@@ -42,7 +42,25 @@ const Navbar = () => {
     <div>
       <div className="relative bg-white h-16 flex items-center justify-between px-6 md:px-10 shadow-md">
         <div className="flex items-center">
-          <img src={Hekto} alt="Hekto Logo" className="h-10 w-auto object-contain" />
+          <img
+            src={Hekto}
+            alt="Hekto Logo"
+            className="h-10 w-auto object-contain"
+          />
+        </div>
+
+        {/* Search Bar for smaller screens (5.5" or less) */}
+        <div className="md:hidden flex items-center space-x-2">
+          <input
+            type="text"
+            placeholder="Search..."
+            value={searchTerm}
+            onChange={handleSearchChange}
+            className="text-sm pl-10 pr-4 py-2 border rounded-full outline-none bg-[#F0F0F0] text-[#0D0E43]"
+          />
+          <button className="bg-[#FB2E86] p-2 rounded-full">
+            <FaSearch className="text-white text-lg" />
+          </button>
         </div>
 
         <button
@@ -53,6 +71,7 @@ const Navbar = () => {
           {isMenuOpen ? <FaTimes /> : <FaBars />}
         </button>
 
+        {/* Desktop Navbar */}
         <ul className="hidden md:flex items-center space-x-8">
           <li>
             <NavLink
@@ -109,126 +128,25 @@ const Navbar = () => {
             </NavLink>
           </li>
 
+          {/* Search bar for desktop screens */}
           <li className="relative flex items-center">
             <input
               type="text"
               placeholder="Search..."
               value={searchTerm}
-              onChange={handleSearchChange} 
+              onChange={handleSearchChange}
               className="text-sm pl-10 pr-4 py-2 border rounded-full outline-none bg-[#F0F0F0] text-[#0D0E43]"
             />
             <button className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-[#FB2E86] p-2 rounded-full">
               <FaSearch className="text-white text-lg" />
             </button>
-
-            {/* Search Results */}
-            {searchTerm && (
-              <div className="absolute z-10 bg-white shadow-md mt-2 w-[300px] max-h-[300px] overflow-y-auto border rounded-lg top-full md:left-full md:right-0 left-0">
-                <ul className="space-y-4 p-2">
-                  {filteredProducts.length > 0 ? (
-                    filteredProducts.map((product) => (
-                      <li key={product.id} className="flex items-center space-x-2">
-                        <img
-                          src={product.image}
-                          alt={product.title}
-                          className="w-10 h-10 object-cover rounded-md"
-                        />
-                        <Link
-                          to={`/product/${product.id}`}
-                          className="text-sm text-[#0D0E43] hover:underline"
-                        >
-                          {product.title}
-                        </Link>
-                      </li>
-                    ))
-                  ) : (
-                    <li className="text-sm text-gray-500">No products found</li>
-                  )}
-                </ul>
-              </div>
-            )}
           </li>
         </ul>
-
-        <div
-          className={`fixed top-0 left-0 w-[75%] h-[70%] rounded-2xl bg-[#7E33E0] shadow-lg z-50 py-8 px-6 mobile-menu transform transition-transform duration-500 ease-in-out  ${
-            isMenuOpen ? "translate-x-0" : "-translate-x-full"
-          }`}
-        >
-          <ul className="space-y-6 text-white">
-            <li>
-              <NavLink
-                to="/"
-                className="font-lato text-lg"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Home
-              </NavLink>
-            </li>
-            <li>
-              <Link
-                to="#"
-                className="font-lato text-lg"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Pages
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="#"
-                className="font-lato text-lg"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Products
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="#"
-                className="font-lato text-lg"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Blog
-              </Link>
-            </li>
-            <li>
-              <NavLink
-                to="/shop"
-                className="font-lato text-lg"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Shop
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/contact"
-                className="font-lato text-lg"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Contact
-              </NavLink>
-            </li>
-
-            <li>
-              <div className="relative flex items-center">
-                <input
-                  type="text"
-                  placeholder="Search..."
-                  value={searchTerm}
-                  onChange={handleSearchChange} 
-                  className="text-sm pl-10 pr-4 py-2 border rounded-full outline-none bg-[#F0F0F0] text-[#0D0E43]"
-                />
-              </div>
-            </li>
-          </ul>
-        </div>
       </div>
 
-      {/* Search Results */}
+      {/* Search Results Below Navbar */}
       {searchTerm && (
-        <div className="mt-4 px-6">
+        <div className="mt-4 px-6 max-h-96 overflow-y-auto">
           <h2 className="text-xl font-semibold">Search Results:</h2>
           <ul className="space-y-2">
             {filteredProducts.length > 0 ? (
@@ -250,6 +168,70 @@ const Navbar = () => {
           </ul>
         </div>
       )}
+
+      {/* Mobile Menu */}
+      <div
+        className={`fixed top-0 left-0 w-[75%] h-[70%] rounded-2xl bg-[#7E33E0] shadow-lg z-50 py-8 px-6 mobile-menu transform transition-transform duration-500 ease-in-out  ${
+          isMenuOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
+      >
+        <ul className="space-y-6 text-white">
+          <li>
+            <NavLink
+              to="/"
+              className="font-lato text-lg"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <Link
+              to="#"
+              className="font-lato text-lg"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Pages
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="#"
+              className="font-lato text-lg"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Products
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="#"
+              className="font-lato text-lg"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Blog
+            </Link>
+          </li>
+          <li>
+            <NavLink
+              to="/shop"
+              className="font-lato text-lg"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Shop
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/contact"
+              className="font-lato text-lg"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Contact
+            </NavLink>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 };
