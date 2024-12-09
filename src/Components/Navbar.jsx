@@ -100,13 +100,15 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link
-              to="#"
-              className="text-[#0D0E43] font-lato text-sm hover:underline"
-            >
-              Blog
-            </Link>
-          </li>
+  <NavLink
+    to="/blog"  // Update to actual path if needed
+    className={({ isActive }) =>
+      `text-sm font-lato ${isActive ? "text-[#FB2E86]" : "text-[#0D0E43]"} hover:underline`
+    }
+  >
+    Blog
+  </NavLink>
+</li>
           <li>
             <NavLink
               to="/shop"

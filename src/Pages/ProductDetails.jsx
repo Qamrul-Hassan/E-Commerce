@@ -55,7 +55,7 @@ const ProductDetails = () => {
   };
 
   return (
-    <PageLayout pageTitle="Product Details"> {/* Wrap content with PageLayout */}
+    <PageLayout pageTitle="Product Details">
       <div className="p-8">
         <div className="max-w-6xl mx-auto bg-white p-6 rounded-lg shadow-md">
           <div className="flex gap-6">
@@ -77,7 +77,7 @@ const ProductDetails = () => {
               />
             </div>
 
-            <div className="w-1/4">
+            <div className="w-1/2">
               <img
                 src={product.image}
                 alt={product.title}
@@ -106,9 +106,9 @@ const ProductDetails = () => {
               <div className="flex gap-2 mt-4">
                 <span className="font-medium">Colors:</span>
                 <div className="flex space-x-2">
-                  <span className="w-6 h-6 bg-yellow-400 rounded-full"></span>
-                  <span className="w-6 h-6 bg-red-500 rounded-full"></span>
-                  <span className="w-6 h-6 bg-blue-700 rounded-full"></span>
+                  <span className="w-6 h-6 bg-yellow-400 rounded-full cursor-pointer"></span>
+                  <span className="w-6 h-6 bg-red-500 rounded-full cursor-pointer"></span>
+                  <span className="w-6 h-6 bg-blue-700 rounded-full cursor-pointer"></span>
                 </div>
               </div>
 
@@ -116,125 +116,70 @@ const ProductDetails = () => {
                 <button className="text-white bg-red-600 p-2 rounded-full cursor-pointer">
                   <FaCartPlus />
                 </button>
-                <button className="text-white bg-red-600 p-2 rounded-full cursor-pointer">
+                <button className="text-gray-600 bg-white p-2 rounded-full border cursor-pointer hover:bg-gray-100">
                   <FaHeart />
                 </button>
-                <button className="text-white bg-blue-600 p-2 rounded-full cursor-pointer">
+                <button className="text-gray-600 bg-white p-2 rounded-full border cursor-pointer hover:bg-gray-100">
                   <FaSearchPlus />
                 </button>
               </div>
             </div>
           </div>
 
-          {/* Tabs Section */}
-          <div className="mt-6">
-            <div className="flex gap-6 border-b border-gray-200 pb-2">
+          {/* Product Tabs */}
+          <div className="mt-8">
+            <div className="flex space-x-8">
               <button
-                className={`${
-                  activeTab === "description"
-                    ? "text-blue-600 border-b-2 border-blue-600"
-                    : "text-gray-600"
-                } text-lg font-medium`}
+                className={`text-lg font-medium ${
+                  activeTab === "description" ? "text-blue-500" : "text-gray-600"
+                }`}
                 onClick={() => setActiveTab("description")}
               >
                 Description
               </button>
               <button
-                className={`${
-                  activeTab === "info"
-                    ? "text-blue-600 border-b-2 border-blue-600"
-                    : "text-gray-600"
-                } text-lg font-medium`}
-                onClick={() => setActiveTab("info")}
-              >
-                Additional Info
-              </button>
-              <button
-                className={`${
-                  activeTab === "reviews"
-                    ? "text-blue-600 border-b-2 border-blue-600"
-                    : "text-gray-600"
-                } text-lg font-medium`}
+                className={`text-lg font-medium ${
+                  activeTab === "reviews" ? "text-blue-500" : "text-gray-600"
+                }`}
                 onClick={() => setActiveTab("reviews")}
               >
                 Reviews
               </button>
-              <button
-                className={`${
-                  activeTab === "video"
-                    ? "text-blue-600 border-b-2 border-blue-600"
-                    : "text-gray-600"
-                } text-lg font-medium`}
-                onClick={() => setActiveTab("video")}
-              >
-                Video
-              </button>
             </div>
 
-            {/* Tab Content */}
             <div className="mt-4">
-              {activeTab === "description" && (
-                <div className="text-gray-700 space-y-4">
-                  <h2 className="text-xl font-bold">Varius tempor:</h2>
-                  <p>
-                    Aliquam dis vulputate vulputate integer sagittis. Faucibus
-                    dolor ornare faucibus vel sed et eleifend habitasse amet.
-                    Montes, mauris varius ac est bibendum. Scelerisque a, risus ac
-                    ante. Velit consectetur neque, elit, aliquet. Non varius proin
-                    sed urna, egestas consequat laoreet diam tincidunt. Magna
-                    eget faucibus cras justo, tortor sed donec tempus. Imperdiet
-                    consequat, quis diam arcu, nulla lobortis justo netus dis. Eu
-                    in fringilla vulputate nunc nec. Dui, massa viverr.
+              {activeTab === "description" ? (
+                <p className="text-gray-600">{product.description}</p>
+              ) : (
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-800">Reviews</h3>
+                  <p className="text-gray-600 mt-4">
+                    No reviews yet. Be the first to write a review!
                   </p>
-                  <h3 className="text-lg font-semibold">More details:</h3>
-                  <ul className="list-disc pl-6">
-                    <li>
-                      Aliquam dis vulputate vulputate integer sagittis. Faucibus
-                      ds diam arcu, nulla lobortis justo netus dis. Eu in
-                      fringilla vulputate nunc nec. Dui, massa viverr.
-                    </li>
-                    <li>
-                      Aliquam dis vulputate vulputate integer sagittis. Faucibus
-                      ds diam arcu, nulla lobortis justo netus dis. Eu in
-                      fringilla vulputate nunc nec. Dui, massa viverr.
-                    </li>
-                    <li>
-                      Aliquam dis vulputate vulputate integer sagittis. Faucibus
-                      ds diam arcu, nulla lobortis justo netus dis. Eu in
-                      fringilla vulputate nunc nec. Dui, massa viverr.
-                    </li>
-                  </ul>
                 </div>
               )}
-              {activeTab === "info" && <div>Additional Info content here...</div>}
-              {activeTab === "reviews" && <div>Reviews content here...</div>}
-              {activeTab === "video" && <div>Video content here...</div>}
             </div>
           </div>
 
-          {/* Related Products Section */}
-          <div className="mt-8">
-            <h2 className="text-xl font-bold text-gray-800 mb-4">
-              Related Products
-            </h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {relatedProducts.map((item) => (
-                <div
-                  key={item.id}
-                  className="bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
-                >
+          {/* Related Products */}
+          <div className="mt-12">
+            <h3 className="text-2xl font-semibold text-gray-800">Related Products</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
+              {relatedProducts.map((relatedProduct) => (
+                <div key={relatedProduct.id} className="bg-white shadow-lg rounded-lg overflow-hidden">
                   <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-32 object-contain mb-4"
+                    src={relatedProduct.image}
+                    alt={relatedProduct.title}
+                    className="w-full h-48 object-cover"
                   />
-                  <h3 className="font-medium text-lg">{item.title}</h3>
-                  <p className="text-sm text-gray-500 mb-4">{item.description}</p>
-                  <div className="flex justify-between items-center">
-                    <span className="text-blue-600 font-semibold">${item.price}</span>
-                    <button className="p-2 bg-red-600 text-white rounded-full">
-                      <FaCartPlus />
-                    </button>
+                  <div className="p-4">
+                    <h4 className="text-xl font-semibold text-gray-800">{relatedProduct.title}</h4>
+                    <p className="text-gray-600 mt-2">${relatedProduct.price}</p>
+                    <div className="mt-4">
+                      <button className="text-white bg-blue-500 py-2 px-4 rounded-md hover:bg-blue-600">
+                        Add to Cart
+                      </button>
+                    </div>
                   </div>
                 </div>
               ))}
