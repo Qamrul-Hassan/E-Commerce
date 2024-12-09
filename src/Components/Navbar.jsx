@@ -25,12 +25,11 @@ const Navbar = () => {
     fetchProducts();
   }, []);
 
-  
+
   const handleSearchChange = (e) => {
     const value = e.target.value;
     setSearchTerm(value);
 
-    
     if (value.trim() === "") {
       setFilteredProducts(products); 
     } else {
@@ -118,7 +117,7 @@ const Navbar = () => {
                 type="text"
                 placeholder="Search..."
                 value={searchTerm}
-                onChange={handleSearchChange} // Update state on input change
+                onChange={handleSearchChange} 
                 className="text-sm pl-10 pr-4 py-2 border rounded-full outline-none bg-[#F0F0F0] text-[#0D0E43]"
               />
               <button className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-[#FB2E86] p-2 rounded-full">
@@ -189,7 +188,6 @@ const Navbar = () => {
               </NavLink>
             </li>
 
-            
             <li>
               <div className="relative flex items-center">
                 <input
@@ -205,16 +203,21 @@ const Navbar = () => {
         </div>
       </div>
 
-    
+      {/* Display search results with images */}
       {searchTerm && (
         <div className="mt-4 px-6">
           <h2 className="text-xl font-semibold">Search Results:</h2>
-          <ul className="space-y-2">
+          <ul className="space-y-4">
             {filteredProducts.length > 0 ? (
               filteredProducts.map((product) => (
-                <li key={product.id} className="text-sm text-[#0D0E43]">
+                <li key={product.id} className="flex items-center space-x-4 text-sm text-[#0D0E43]">
+                  <img
+                    src={product.image} 
+                    alt={product.title}
+                    className="w-16 h-16 object-cover rounded-md"
+                  />
                   <Link to={`/product/${product.id}`} className="hover:underline">
-                    {product.title} 
+                    {product.title}
                   </Link>
                 </li>
               ))
