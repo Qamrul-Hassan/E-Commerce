@@ -13,10 +13,7 @@ import BlogImage3 from "../assets/Image/Blog-3.png";
 import RecentPostImage1 from "../assets/Image/BlogS-1.png";
 import RecentPostImage2 from "../assets/Image/BlogS-2.png";
 import RecentPostImage3 from "../assets/Image/BlogS-3.png";
-import RecentPostImage4 from "../assets/Image/BlogS-4.png";
-import SaleProductImage1 from "../assets/Image/BlogSale-1.png";
-import SaleProductImage2 from "../assets/Image/BlogSale-2.png";
-import SaleProductImage3 from "../assets/Image/BlogSale-3.png";
+
 
 const BlogPage = () => {
   const [expandedPost, setExpandedPost] = useState(null);
